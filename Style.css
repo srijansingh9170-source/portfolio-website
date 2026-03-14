@@ -1,13 +1,87 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 body{
-font-family: Arial;
-text-align:center;
-background:#f2f2f2;
+    background: #f4f6f8;
+    color:#333;
+    text-align:center;
 }
 
-h1{
-color:#333;
+/* Header */
+
+header{
+    background: linear-gradient(135deg,#4f46e5,#6366f1);
+    color:white;
+    padding:60px 20px;
+    animation: fadeDown 1s ease;
 }
 
-ul{
-list-style:none;
+header h1{
+    font-size:40px;
+    margin-bottom:10px;
+}
+
+header p{
+    font-size:18px;
+}
+
+/* Sections */
+
+section{
+    padding:60px 20px;
+}
+
+/* Project cards */
+
+.project-container{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    margin-top:30px;
+    flex-wrap:wrap;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    width:250px;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover animation */
+
+.card:hover{
+    transform: translateY(-10px);
+    box-shadow:0 15px 25px rgba(0,0,0,0.15);
+}
+
+.card h3{
+    margin-bottom:10px;
+    color:#4f46e5;
+}
+
+/* Contact */
+
+.contact{
+    background:#111;
+    color:white;
+}
+
+/* Animations */
+
+@keyframes fadeDown{
+    from{
+        opacity:0;
+        transform:translateY(-20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
