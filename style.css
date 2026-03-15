@@ -1,109 +1,79 @@
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial, Helvetica, sans-serif;
-}
-
 body{
-background:#f4f6f8;
-text-align:center;
-color:#333;
+font-family: Arial;
+margin:0;
+background:#f5f5f5;
 }
 
-/* Header */
-
-header{
-background:linear-gradient(135deg,#4f46e5,#6366f1);
-color:white;
-padding:60px 20px;
-}
-
-header h1{
-font-size:42px;
-margin-bottom:10px;
-}
-
-header p{
-margin-bottom:20px;
-}
-
-/* Social buttons */
-
-.social-buttons a{
-background:white;
-color:#4f46e5;
-padding:10px 18px;
-margin:5px;
-border-radius:25px;
-text-decoration:none;
-font-weight:bold;
-transition:0.3s;
-}
-
-.social-buttons a:hover{
-background:#e0e7ff;
-transform:scale(1.05);
-}
-
-/* Sections */
-
-section{
-padding:60px 20px;
-}
-
-/* Project cards */
-
-.project-container{
+.navbar{
 display:flex;
-justify-content:center;
-gap:25px;
-flex-wrap:wrap;
-margin-top:30px;
-}
-
-.card{
-background:white;
-padding:25px;
-width:260px;
-border-radius:12px;
-box-shadow:0 6px 18px rgba(0,0,0,0.1);
-transition:0.3s;
-}
-
-.card:hover{
-transform:translateY(-10px);
-box-shadow:0 15px 30px rgba(0,0,0,0.15);
-}
-
-.card h3{
-margin-bottom:10px;
-color:#4f46e5;
-}
-
-.card a{
-display:inline-block;
-margin-top:10px;
-text-decoration:none;
-background:#4f46e5;
-color:white;
-padding:8px 14px;
-border-radius:6px;
-transition:0.3s;
-}
-
-.card a:hover{
-background:#3730a3;
-}
-
-/* Contact */
-
-.contact{
+justify-content:space-between;
+padding:20px;
 background:#111;
 color:white;
 }
 
-.contact a{
-color:#a5b4fc;
+.navbar ul{
+display:flex;
+list-style:none;
+}
+
+.navbar li{
+margin-left:20px;
+}
+
+.navbar a{
+color:white;
 text-decoration:none;
+}
+
+.hero{
+text-align:center;
+padding:80px;
+background:linear-gradient(120deg,#3b82f6,#9333ea);
+color:white;
+}
+
+section{
+padding:60px;
+text-align:center;
+}
+
+.skills span{
+background:#3b82f6;
+color:white;
+padding:10px 20px;
+margin:10px;
+border-radius:20px;
+display:inline-block;
+}
+
+.project-card{
+background:white;
+padding:20px;
+margin:20px;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+.project-card a{
+display:inline-block;
+margin-top:10px;
+color:#3b82f6;
+}
+
+.project-card{
+transition:0.3s;
+}
+
+.project-card:hover{
+transform:translateY(-10px);
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+.skills span{
+transition:0.3s;
+}
+
+.skills span:hover{
+background:#9333ea;
 }
