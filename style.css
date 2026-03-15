@@ -2,13 +2,12 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
+font-family:Poppins;
 }
 
 body{
-font-family:'Poppins',sans-serif;
-background:#f6f8fb;
+background:#f4f6fb;
 color:#333;
-line-height:1.6;
 }
 
 header{
@@ -26,24 +25,23 @@ align-items:center;
 width:45px;
 height:45px;
 border-radius:50%;
-object-fit:cover;
 }
 
 .nav-links{
 display:flex;
 list-style:none;
-gap:25px;
+gap:30px;
 }
 
 .nav-links a{
 color:white;
 text-decoration:none;
-font-weight:500;
-transition:0.3s;
 }
 
-.nav-links a:hover{
-color:#00d4ff;
+.toggle{
+color:white;
+cursor:pointer;
+font-size:18px;
 }
 
 .hero{
@@ -52,40 +50,32 @@ display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
-text-align:center;
 background:linear-gradient(135deg,#4f46e5,#9333ea);
 color:white;
-padding:20px;
-animation:fadeIn 1s ease;
+text-align:center;
 }
 
 .hero h1{
-font-size:45px;
-margin-bottom:10px;
+font-size:50px;
 }
 
 .hero span{
 color:#00ffff;
 }
 
-.hero p{
-margin:5px 0;
-font-size:18px;
+.typing{
+margin-top:10px;
+font-size:22px;
 }
 
 .btn{
-margin-top:20px;
-background:white;
-color:#333;
+margin-top:25px;
 padding:12px 25px;
-border-radius:30px;
+background:white;
+color:black;
+border-radius:25px;
 text-decoration:none;
 font-weight:600;
-transition:0.3s;
-}
-
-.btn:hover{
-transform:translateY(-3px);
 }
 
 .section{
@@ -93,63 +83,45 @@ padding:80px 20px;
 max-width:1000px;
 margin:auto;
 text-align:center;
-animation:fadeInUp 1s ease;
 }
 
-.section h2{
-margin-bottom:30px;
-font-size:32px;
-}
-
-.skills-container{
+.skills{
 display:flex;
 flex-wrap:wrap;
 justify-content:center;
 gap:15px;
 }
 
-.skills-container span{
+.skill{
 background:#111;
 color:white;
 padding:10px 20px;
 border-radius:20px;
-font-size:14px;
 }
 
-.projects-grid{
+.projects{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:25px;
 }
 
-.project-card{
+.card{
 background:white;
 padding:25px;
-border-radius:12px;
+border-radius:10px;
 box-shadow:0 10px 25px rgba(0,0,0,0.1);
 transition:0.3s;
 }
 
-.project-card:hover{
+.card:hover{
 transform:translateY(-8px);
 }
 
-.project-card h3{
-margin-bottom:10px;
-}
-
-.project-card a{
+.card a{
 display:inline-block;
 margin-top:10px;
-text-decoration:none;
 color:#4f46e5;
-font-weight:600;
-}
-
-.github img{
-margin:10px;
-max-width:450px;
-width:100%;
+text-decoration:none;
 }
 
 footer{
@@ -159,18 +131,7 @@ text-align:center;
 padding:20px;
 }
 
-@keyframes fadeIn{
-from{opacity:0}
-to{opacity:1}
-}
-
-@keyframes fadeInUp{
-from{
-opacity:0;
-transform:translateY(20px);
-}
-to{
-opacity:1;
-transform:translateY(0);
-}
+.dark{
+background:#111;
+color:white;
 }
