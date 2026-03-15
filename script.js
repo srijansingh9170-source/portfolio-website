@@ -33,15 +33,7 @@ setTimeout(type, 100);
 })();
 
 
-function toggleTheme(){
-
-document.body.classList.toggle("dark");
-
-}
-
-
-
-ScrollReveal().reveal('.section', {
+ScrollReveal().reveal('.section',{
 distance:'40px',
 duration:800,
 origin:'bottom',
