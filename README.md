@@ -17,10 +17,6 @@ Technologies Used
 - HTML
 - CSS
 
-Screenshot
-
-![Portfolio Screenshot](images/homepage.png)
-
 Installation
 
 1. Clone the repository
