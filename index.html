@@ -1,187 +1,254 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Srijan Singh — AI/ML Engineer & CS Student</title>
+<meta name="description" content="Portfolio of Srijan Singh, a B.Tech CSE student specializing in AI & ML.">
 
-<title>Srijan Singh | Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="style.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
-<script src="https://unpkg.com/scrollreveal"></script>
-
+<script>
+  /* Set initial theme before first paint to avoid a flash of the wrong theme.
+     Reads only the system preference — no storage is used. */
+  (function(){
+    try{
+      var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+    }catch(e){
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+  })();
+</script>
 </head>
-
 
 <body>
 
-
 <header>
+  <nav class="navbar">
+    <div class="brand">
+      <img src="profile.jpg" alt="Srijan Singh">
+      <span class="brand-name">Srijan Singh</span>
+    </div>
 
-<nav class="navbar">
+    <ul class="nav-links">
+      <li><a href="#about" data-i18n="nav_about">about</a></li>
+      <li><a href="#skills" data-i18n="nav_skills">skills</a></li>
+      <li><a href="#projects" data-i18n="nav_projects">projects</a></li>
+      <li><a href="#contact" data-i18n="nav_contact">contact</a></li>
+    </ul>
 
-<div class="logo">
-<img src="profile.jpg">
-</div>
+    <div class="nav-controls">
+      <span class="badge-pill">
+        <span class="status-dot"></span>
+        <span data-i18n="badge_open_to_work">Open to work</span>
+      </span>
 
-<ul class="nav-links">
+      <button id="themeToggle" class="icon-btn" type="button" aria-label="Toggle dark mode" aria-pressed="false">
+        <span id="themeIcon" aria-hidden="true">🌙</span>
+      </button>
 
-<li><a href="#about">About</a></li>
-<li><a href="#skills">Skills</a></li>
-<li><a href="#projects">Projects</a></li>
-<li><a href="#contact">Contact</a></li>
-
-</ul>
-
-</nav>
-
+      <select id="langSelect" class="lang-select" aria-label="Select language">
+        <option value="en">EN</option>
+        <option value="hi">हिंदी</option>
+        <option value="es">Español</option>
+        <option value="fr">Français</option>
+        <option value="de">Deutsch</option>
+        <option value="pt">Português</option>
+        <option value="ja">日本語</option>
+        <option value="zh">中文</option>
+      </select>
+    </div>
+  </nav>
 </header>
 
-
-
 <section class="hero">
+  <div class="hero-graph" aria-hidden="true">
+    <svg viewBox="0 0 800 400" preserveAspectRatio="none">
+      <path class="curve" d="M -20,60 C 120,80 180,220 280,240 C 380,260 420,140 520,150 C 620,160 660,300 820,320" />
+    </svg>
+  </div>
 
-<h1>Hello, I'm <span>Srijan Singh</span></h1>
+  <div class="wrap">
+    <div class="hero-inner">
+      <p class="eyebrow" data-i18n="hero_eyebrow">B.Tech CSE · AI &amp; ML</p>
+      <h1 data-i18n-html="hero_heading_html">Building intelligent systems,<br><span class="accent">one commit</span> at a time.</h1>
 
-<h2 class="typing"></h2>
+      <p class="hero-status-line">
+        <span class="prompt">$</span> status --watch
+        <span class="typing-out" id="typingOut"></span><span class="cursor"></span>
+      </p>
 
-<a href="#projects" class="btn">View Projects</a>
-
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">./view-projects</a>
+        <a href="#contact" class="btn btn-ghost">$ contact --email</a>
+      </div>
+    </div>
+  </div>
 </section>
 
+<section id="about" class="section reveal">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 data-i18n="section_about">About</h2>
+      <span class="section-tag" data-i18n="section_about_tag">01 — profile</span>
+    </div>
 
+    <div class="about-grid">
+      <div class="config-panel">
+        <div class="panel-title">config.json</div>
+        <div class="config-row"><span class="config-key" data-i18n="config_role_key">role</span><span class="config-val" data-i18n="config_role_val">CSE Student</span></div>
+        <div class="config-row"><span class="config-key" data-i18n="config_focus_key">focus</span><span class="config-val" data-i18n="config_focus_val">AI &amp; ML</span></div>
+        <div class="config-row"><span class="config-key" data-i18n="config_interests_key">interests</span><span class="config-val" data-i18n="config_interests_val">Open Source</span></div>
+        <div class="config-row"><span class="config-key" data-i18n="config_status_key">status</span><span class="config-val" data-i18n="config_status_val">available</span></div>
+      </div>
 
-<section id="about" class="section">
-
-<h2>About Me</h2>
-
-<p>
-
-Computer Science student specializing in Artificial Intelligence & Machine Learning.  
-Passionate about building projects, solving algorithmic challenges and contributing to open source.
-
-</p>
-
+      <div class="about-copy">
+        <p data-i18n="about_p1">I'm a Computer Science student specializing in Artificial Intelligence &amp; Machine Learning. Most of my time goes into building projects, working through algorithmic problems, and figuring out how systems actually behave once you run them — not just how they look on paper.</p>
+        <p data-i18n="about_p2">I care about writing code that's easy for the next person (often future me) to read, and I like contributing to open source because it forces both of those habits.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
+<section id="skills" class="section reveal">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 data-i18n="section_skills">Skills</h2>
+      <span class="section-tag" data-i18n="section_skills_tag">02 — toolkit</span>
+    </div>
 
-
-<section id="skills" class="section">
-
-<h2>Skills</h2>
-
-<div class="skills-container">
-
-<div class="skill-card">Python</div>
-<div class="skill-card">C++</div>
-<div class="skill-card">JavaScript</div>
-<div class="skill-card">HTML</div>
-<div class="skill-card">CSS</div>
-<div class="skill-card">Git</div>
-<div class="skill-card">GitHub</div>
-<div class="skill-card">SQL</div>
-
-</div>
-
+    <p class="skills-array">skills = [</p>
+    <div class="skills-container">
+      <div class="skill-card">Python</div>
+      <div class="skill-card">C++</div>
+      <div class="skill-card">JavaScript</div>
+      <div class="skill-card">HTML</div>
+      <div class="skill-card">CSS</div>
+      <div class="skill-card">Git</div>
+      <div class="skill-card">GitHub</div>
+      <div class="skill-card">SQL</div>
+    </div>
+  </div>
 </section>
 
+<section id="projects" class="section reveal">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 data-i18n="section_projects">Projects</h2>
+      <span class="section-tag" data-i18n="section_projects_tag">03 — shipped</span>
+    </div>
 
+    <div class="projects-grid">
 
-<section id="projects" class="section">
+      <div class="project-card">
+        <div class="card-head">
+          <span>file-organizer.py</span>
+          <span class="card-status status-shipped" data-i18n="status_shipped">shipped</span>
+        </div>
+        <div class="card-body">
+          <h3 data-i18n="project1_title">Python File Organizer</h3>
+          <p data-i18n="project1_desc">Automatically sorts files into folders based on file type, so downloads and desktops stay usable.</p>
+          <div class="card-foot">
+            <span class="lang-tag">Python</span>
+            <a href="https://github.com/srijansingh9170-source/file-organizer-python" target="_blank" rel="noopener"><span data-i18n="view_source">→ View source</span></a>
+          </div>
+        </div>
+      </div>
 
-<h2>Projects</h2>
+      <div class="project-card">
+        <div class="card-head">
+          <span>dsa-practice/</span>
+          <span class="card-status status-practice" data-i18n="status_practice">practice</span>
+        </div>
+        <div class="card-body">
+          <h3 data-i18n="project2_title">DSA Practice</h3>
+          <p data-i18n="project2_desc">A running collection of solved Data Structures &amp; Algorithms problems, used to sharpen problem-solving speed.</p>
+          <div class="card-foot">
+            <span class="lang-tag">Python</span>
+            <a href="https://github.com/srijansingh9170-source/python-mini-projects" target="_blank" rel="noopener"><span data-i18n="view_source">→ View source</span></a>
+          </div>
+        </div>
+      </div>
 
-<div class="projects-grid">
+      <div class="project-card">
+        <div class="card-head">
+          <span>portfolio/</span>
+          <span class="card-status status-shipped" data-i18n="status_shipped">shipped</span>
+        </div>
+        <div class="card-body">
+          <h3 data-i18n="project3_title">Portfolio Website</h3>
+          <p data-i18n="project3_desc">This site — built from scratch with HTML, CSS and JavaScript, no framework in the way.</p>
+          <div class="card-foot">
+            <span class="lang-tag">HTML / CSS / JS</span>
+            <a href="https://github.com/srijansingh9170-source/portfolio-website" target="_blank" rel="noopener"><span data-i18n="view_source">→ View source</span></a>
+          </div>
+        </div>
+      </div>
 
-<div class="project-card">
-
-<h3>Python File Organizer</h3>
-
-<p>Automatically organizes files into folders based on file types.</p>
-
-<a href="https://github.com/srijansingh9170-source/file-organizer-python">View on GitHub</a>
-
-</div>
-
-
-<div class="project-card">
-
-<h3>DSA Practice</h3>
-
-<p>Collection of solved Data Structures & Algorithms problems.</p>
-
-<a href="https://github.com/srijansingh9170-source/python-mini-projects">View on GitHub</a>
-
-</div>
-
-
-<div class="project-card">
-
-<h3>Portfolio Website</h3>
-
-<p>Personal portfolio website built using HTML, CSS and JavaScript.</p>
-
-<a href="https://github.com/srijansingh9170-source/portfolio-website">View on GitHub</a>
-
-</div>
-
-</div>
-
+    </div>
+  </div>
 </section>
 
+<section class="section reveal">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 data-i18n="section_metrics">GitHub Stats</h2>
+      <span class="section-tag" data-i18n="section_metrics_tag">04 — metrics</span>
+    </div>
 
+    <div class="metrics-panel">
+      <div class="panel-title">$ github stats --user srijansingh9170-source</div>
 
-<section class="section">
-
-<h2>GitHub Stats</h2>
-
-<img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=srijansingh9170-source&theme=default"/>
-
-<br><br>
-
-<img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=srijansingh9170-source&theme=default"/>
-
-<br><br>
-
-<img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=srijansingh9170-source&theme=default"/>
-
+      <div class="metrics-block">
+        <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=srijansingh9170-source&theme=default" alt="GitHub profile details for srijansingh9170-source" loading="lazy">
+      </div>
+      <div class="metrics-block">
+        <img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=srijansingh9170-source&theme=default" alt="GitHub stats for srijansingh9170-source" loading="lazy">
+      </div>
+      <div class="metrics-block">
+        <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=srijansingh9170-source&theme=default" alt="Repos per language for srijansingh9170-source" loading="lazy">
+      </div>
+    </div>
+  </div>
 </section>
 
+<section id="contact" class="section reveal">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 data-i18n="section_contact">Contact</h2>
+      <span class="section-tag" data-i18n="section_contact_tag">05 — reach out</span>
+    </div>
 
+    <div class="terminal">
+      <div class="terminal-bar"><span></span><span></span><span></span></div>
+      <div class="terminal-body">
+        <p class="line"><span class="prompt">$</span> cat contact.txt</p>
+        <p class="line"><span data-i18n="contact_line_email_label">email:</span> <a href="mailto:srijansingh9170@gmail.com">srijansingh9170@gmail.com</a></p>
+        <p class="line"><span data-i18n="contact_line_github_label">github:</span> <a href="https://github.com/srijansingh9170-source" target="_blank" rel="noopener">github.com/srijansingh9170-source</a></p>
+      </div>
+    </div>
 
-<section id="contact" class="section">
-
-<h2>Contact</h2>
-
-<p>Email: srijansingh9170@gmail.com</p>
-
-<p>
-
-GitHub: 
-<a href="https://github.com/srijansingh9170-source">
-
-github.com/srijansingh9170-source
-
-</a>
-
-</p>
-
+    <div class="contact-actions">
+      <a href="mailto:srijansingh9170@gmail.com" class="btn btn-primary" data-i18n="btn_email_me">Email me</a>
+      <button id="copyEmailBtn" class="btn btn-ghost" type="button" data-i18n="btn_copy_email" data-email="srijansingh9170@gmail.com">Copy email</button>
+      <a href="https://github.com/srijansingh9170-source" target="_blank" rel="noopener" class="btn btn-ghost" data-i18n="btn_github_profile">GitHub profile</a>
+    </div>
+  </div>
 </section>
-
-
 
 <footer>
-
-<p>© 2026 Srijan Singh</p>
-
+  <div class="wrap footer-inner">
+    <span>© 2026 Srijan Singh</span>
+    <span data-i18n="footer_tagline">designed &amp; built by hand — no template</span>
+  </div>
 </footer>
 
-
 <script src="script.js"></script>
-
 </body>
 </html>
