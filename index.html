@@ -1,59 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Srijan Singh — AI/ML Engineer & CS Student</title>
-<meta name="description" content="Portfolio of Srijan Singh, a B.Tech CSE student specializing in AI & ML.">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="style.css">
-
+<meta name="description" content="Portfolio of Srijan Singh, B.Tech CSE student specializing in AI & ML."/>
+<meta name="author" content="Srijan Singh"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<link rel="stylesheet" href="style.css"/>
 <script>
-  /* Set initial theme before first paint to avoid a flash of the wrong theme.
-     Reads only the system preference — no storage is used. */
-  (function(){
-    try{
-      var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-      document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
-    }catch(e){
-      document.documentElement.setAttribute('data-theme', 'light');
-    }
-  })();
+(function(){
+  try{var d=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;
+  document.documentElement.setAttribute('data-theme',d?'dark':'light');}
+  catch(e){document.documentElement.setAttribute('data-theme','dark');}
+})();
 </script>
 </head>
-
 <body>
 
-<header>
-  <nav class="navbar">
-    <div class="brand">
-      <img src="profile.jpg" alt="Srijan Singh">
-      <span class="brand-name">Srijan Singh</span>
-    </div>
+<div id="loader" aria-hidden="true">
+  <div class="ld-wrap">
+    <div class="ld-logo"><span class="ld-br">&lt;</span>S<span class="ld-br">/&gt;</span></div>
+    <div class="ld-track"><div class="ld-bar"></div></div>
+    <div class="ld-text" id="ldText">initializing...</div>
+  </div>
+</div>
 
-    <ul class="nav-links">
-      <li><a href="#about" data-i18n="nav_about">about</a></li>
-      <li><a href="#skills" data-i18n="nav_skills">skills</a></li>
+<div id="cur" aria-hidden="true"></div>
+<div id="cfl" aria-hidden="true"></div>
+<div id="pbar" aria-hidden="true"></div>
+<canvas id="pc" aria-hidden="true"></canvas>
+
+<header id="hdr">
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <a href="#home" class="brand">
+      <div class="brand-av">
+        <div class="brand-av-i">
+          <img src="profile.jpg" alt="Srijan" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <span class="av-fb">S</span>
+        </div>
+      </div>
+      <div class="brand-txt">
+        <span class="brand-name">Srijan Singh</span>
+        <span class="brand-sub" data-i18n="hero_eyebrow">B.Tech CSE · AI &amp; ML</span>
+      </div>
+    </a>
+    <ul class="nav-links" id="navLinks" role="list">
+      <li><a href="#about"    data-i18n="nav_about">about</a></li>
+      <li><a href="#skills"   data-i18n="nav_skills">skills</a></li>
       <li><a href="#projects" data-i18n="nav_projects">projects</a></li>
-      <li><a href="#contact" data-i18n="nav_contact">contact</a></li>
+      <li><a href="#leetcode" data-i18n="nav_leetcode">leetcode</a></li>
+      <li><a href="#cv"       data-i18n="nav_cv">resume</a></li>
+      <li><a href="#contact"  data-i18n="nav_contact">contact</a></li>
     </ul>
-
-    <div class="nav-controls">
-      <span class="badge-pill">
-        <span class="status-dot"></span>
-        <span data-i18n="badge_open_to_work">Open to work</span>
-      </span>
-
-      <button id="themeToggle" class="icon-btn" type="button" aria-label="Toggle dark mode" aria-pressed="false">
-        <span id="themeIcon" aria-hidden="true">🌙</span>
-      </button>
-
-      <select id="langSelect" class="lang-select" aria-label="Select language">
+    <div class="nav-ctrl">
+      <span class="otw-badge"><span class="sdot"></span><span data-i18n="badge_otw">Open to work</span></span>
+      <a href="https://linkedin.com/in/srijansingh" target="_blank" rel="noopener" class="icon-btn" title="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://github.com/srijansingh9170-source" target="_blank" rel="noopener" class="icon-btn" title="GitHub" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <button id="themeToggle" class="icon-btn" type="button" aria-label="Toggle theme"><span id="themeIcon">☀️</span></button>
+      <select id="langSelect" class="lang-sel" aria-label="Language">
         <option value="en">EN</option>
         <option value="hi">हिंदी</option>
         <option value="es">Español</option>
@@ -63,192 +71,355 @@
         <option value="ja">日本語</option>
         <option value="zh">中文</option>
       </select>
+      <button id="ham" class="ham-btn" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
 </header>
 
-<section class="hero">
+<!-- HERO -->
+<section id="home" class="hero">
+  <div class="hero-grid" aria-hidden="true"></div>
   <div class="hero-graph" aria-hidden="true">
     <svg viewBox="0 0 800 400" preserveAspectRatio="none">
-      <path class="curve" d="M -20,60 C 120,80 180,220 280,240 C 380,260 420,140 520,150 C 620,160 660,300 820,320" />
+      <path class="curve" d="M-20,60 C120,80 180,220 280,240 C380,260 420,140 520,150 C620,160 660,300 820,320"/>
     </svg>
   </div>
-
+  <div class="hero-pills" aria-hidden="true">
+    <div class="hpill"><i class="fab fa-python" style="color:#3776ab"></i> Python</div>
+    <div class="hpill"><i class="fas fa-brain" style="color:#a855f7"></i> AI/ML</div>
+    <div class="hpill"><i class="fas fa-code" style="color:#06b6d4"></i> C++</div>
+    <div class="hpill"><i class="fab fa-git-alt" style="color:#f05032"></i> Git</div>
+  </div>
   <div class="wrap">
     <div class="hero-inner">
       <p class="eyebrow" data-i18n="hero_eyebrow">B.Tech CSE · AI &amp; ML</p>
-      <h1 data-i18n-html="hero_heading_html">Building intelligent systems,<br><span class="accent">one commit</span> at a time.</h1>
-
-      <p class="hero-status-line">
-        <span class="prompt">$</span> status --watch
-        <span class="typing-out" id="typingOut"></span><span class="cursor"></span>
+      <h1 data-i18n-html="hero_h">Building intelligent systems,<br><span class="accent">one commit</span> at a time.</h1>
+      <p class="hero-status">
+        <span class="psym">$</span> status --watch
+        <span id="typingOut"></span><span class="tcur" aria-hidden="true"></span>
       </p>
-
       <div class="hero-actions">
-        <a href="#projects" class="btn btn-primary">./view-projects</a>
-        <a href="#contact" class="btn btn-ghost">$ contact --email</a>
+        <a href="#projects" class="btn btn-primary"><i class="fas fa-folder-open"></i><span data-i18n="btn_projects">./view-projects</span></a>
+        <a href="resume.pdf" download class="btn btn-accent"><i class="fas fa-file-arrow-down"></i><span data-i18n="btn_cv">$ get resume.pdf</span></a>
+        <a href="#contact" class="btn btn-ghost"><i class="fas fa-terminal"></i><span data-i18n="btn_ping">$ ping --me</span></a>
+      </div>
+      <div class="hero-social">
+        <a href="https://github.com/srijansingh9170-source" target="_blank" rel="noopener" class="soc-btn"><i class="fab fa-github"></i> GitHub</a>
+        <a href="https://linkedin.com/in/srijansingh" target="_blank" rel="noopener" class="soc-btn soc-li"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+        <a href="https://leetcode.com/srijansingh9170" target="_blank" rel="noopener" class="soc-btn soc-lc"><i class="fas fa-code"></i> LeetCode</a>
+        <a href="mailto:srijansingh9170@gmail.com" class="soc-btn soc-mail"><i class="fas fa-envelope"></i> Email</a>
+      </div>
+      <div class="hero-meta">
+        <div class="hero-stat"><span class="hsn" data-target="3">0</span><span class="hsu">+</span><span class="hsl" data-i18n="meta_proj">projects</span></div>
+        <div class="hdiv"></div>
+        <div class="hero-stat"><span class="hsn" data-target="8">0</span><span class="hsu">+</span><span class="hsl" data-i18n="meta_tech">technologies</span></div>
+        <div class="hdiv"></div>
+        <div class="hero-stat"><span class="hsn" data-target="100">0</span><span class="hsu">%</span><span class="hsl" data-i18n="meta_open">open to work</span></div>
       </div>
     </div>
   </div>
+  <div class="scroll-hint" aria-hidden="true">
+    <div class="sc-mouse"><div class="sc-wheel"></div></div>
+    <span>scroll</span>
+  </div>
 </section>
 
+<!-- ABOUT -->
 <section id="about" class="section reveal">
   <div class="wrap">
-    <div class="section-head">
-      <h2 data-i18n="section_about">About</h2>
-      <span class="section-tag" data-i18n="section_about_tag">01 — profile</span>
+    <div class="sec-head">
+      <h2 data-i18n="sec_about">About</h2>
+      <span class="sec-tag" data-i18n="sec_about_tag">01 — profile</span>
     </div>
-
     <div class="about-grid">
-      <div class="config-panel">
-        <div class="panel-title">config.json</div>
-        <div class="config-row"><span class="config-key" data-i18n="config_role_key">role</span><span class="config-val" data-i18n="config_role_val">CSE Student</span></div>
-        <div class="config-row"><span class="config-key" data-i18n="config_focus_key">focus</span><span class="config-val" data-i18n="config_focus_val">AI &amp; ML</span></div>
-        <div class="config-row"><span class="config-key" data-i18n="config_interests_key">interests</span><span class="config-val" data-i18n="config_interests_val">Open Source</span></div>
-        <div class="config-row"><span class="config-key" data-i18n="config_status_key">status</span><span class="config-val" data-i18n="config_status_val">available</span></div>
+      <div class="cfg-panel reveal-l d1">
+        <div class="ptb">
+          <div class="tb-dots"><span class="tbd tbd-r"></span><span class="tbd tbd-y"></span><span class="tbd tbd-g"></span></div>
+          <span class="ptitle">config.json</span>
+        </div>
+        <div class="cfg-rows">
+          <div class="cfg-row"><span class="ck" data-i18n="cfg_role_k">role</span><span class="cv-val" data-i18n="cfg_role_v">CSE Student</span></div>
+          <div class="cfg-row"><span class="ck" data-i18n="cfg_focus_k">focus</span><span class="cv-val" data-i18n="cfg_focus_v">AI &amp; ML</span></div>
+          <div class="cfg-row"><span class="ck" data-i18n="cfg_int_k">interests</span><span class="cv-val" data-i18n="cfg_int_v">Open Source</span></div>
+          <div class="cfg-row"><span class="ck">github</span><span class="cv-val">srijansingh9170-source</span></div>
+          <div class="cfg-row"><span class="ck">linkedin</span><span class="cv-val">in/srijansingh</span></div>
+          <div class="cfg-row"><span class="ck">leetcode</span><span class="cv-val" style="color:var(--lc-orange)">srijansingh9170</span></div>
+          <div class="cfg-row"><span class="ck" data-i18n="cfg_status_k">status</span><span class="cv-val cv-ok" data-i18n="cfg_status_v">available</span></div>
+        </div>
       </div>
-
-      <div class="about-copy">
-        <p data-i18n="about_p1">I'm a Computer Science student specializing in Artificial Intelligence &amp; Machine Learning. Most of my time goes into building projects, working through algorithmic problems, and figuring out how systems actually behave once you run them — not just how they look on paper.</p>
-        <p data-i18n="about_p2">I care about writing code that's easy for the next person (often future me) to read, and I like contributing to open source because it forces both of those habits.</p>
+      <div class="about-r reveal-r d2">
+        <div class="about-copy">
+          <p data-i18n="about_p1">I'm a Computer Science student specializing in Artificial Intelligence &amp; Machine Learning. Most of my time goes into building projects, working through algorithmic problems, and figuring out how systems actually behave once you run them.</p>
+          <p data-i18n="about_p2">I care about writing code that's easy for the next person to read, and I like contributing to open source because it forces both of those habits.</p>
+        </div>
+        <div class="about-cta">
+          <a href="resume.pdf" download class="btn btn-primary"><i class="fas fa-file-arrow-down"></i><span data-i18n="btn_cv">$ get resume.pdf</span></a>
+          <a href="https://linkedin.com/in/srijansingh" target="_blank" rel="noopener" class="btn btn-li"><i class="fab fa-linkedin-in"></i><span data-i18n="btn_linkedin">LinkedIn profile</span></a>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- SKILLS -->
 <section id="skills" class="section reveal">
   <div class="wrap">
-    <div class="section-head">
-      <h2 data-i18n="section_skills">Skills</h2>
-      <span class="section-tag" data-i18n="section_skills_tag">02 — toolkit</span>
+    <div class="sec-head">
+      <h2 data-i18n="sec_skills">Skills</h2>
+      <span class="sec-tag" data-i18n="sec_skills_tag">02 — toolkit</span>
     </div>
-
-    <p class="skills-array">skills = [</p>
-    <div class="skills-container">
-      <div class="skill-card">Python</div>
-      <div class="skill-card">C++</div>
-      <div class="skill-card">JavaScript</div>
-      <div class="skill-card">HTML</div>
-      <div class="skill-card">CSS</div>
-      <div class="skill-card">Git</div>
-      <div class="skill-card">GitHub</div>
-      <div class="skill-card">SQL</div>
+    <div class="sk-header reveal d1"><span class="sk-k">skills</span> <span class="sk-eq">=</span> [</div>
+    <div class="sk-grid reveal d2">
+      <div class="sk-card"><i class="fab fa-python" style="color:#3776ab"></i> Python</div>
+      <div class="sk-card"><i class="fas fa-code" style="color:#00599c"></i> C++</div>
+      <div class="sk-card"><i class="fab fa-js" style="color:#f7df1e"></i> JavaScript</div>
+      <div class="sk-card"><i class="fab fa-html5" style="color:#e34c26"></i> HTML</div>
+      <div class="sk-card"><i class="fab fa-css3-alt" style="color:#264de4"></i> CSS</div>
+      <div class="sk-card"><i class="fab fa-git-alt" style="color:#f05032"></i> Git</div>
+      <div class="sk-card"><i class="fab fa-github"></i> GitHub</div>
+      <div class="sk-card"><i class="fas fa-database" style="color:#336791"></i> SQL</div>
     </div>
+    <div class="sk-close reveal d3">]</div>
   </div>
 </section>
 
+<!-- PROJECTS -->
 <section id="projects" class="section reveal">
   <div class="wrap">
-    <div class="section-head">
-      <h2 data-i18n="section_projects">Projects</h2>
-      <span class="section-tag" data-i18n="section_projects_tag">03 — shipped</span>
+    <div class="sec-head">
+      <h2 data-i18n="sec_projects">Projects</h2>
+      <span class="sec-tag" data-i18n="sec_projects_tag">03 — shipped</span>
     </div>
-
-    <div class="projects-grid">
-
-      <div class="project-card">
+    <div class="proj-grid">
+      <article class="proj-card reveal d1">
         <div class="card-head">
-          <span>file-organizer.py</span>
-          <span class="card-status status-shipped" data-i18n="status_shipped">shipped</span>
+          <span><i class="fas fa-file-code" style="color:var(--signal);margin-right:5px"></i>file-organizer.py</span>
+          <span class="card-badge s-ship" data-i18n="badge_shipped">shipped</span>
         </div>
         <div class="card-body">
-          <h3 data-i18n="project1_title">Python File Organizer</h3>
-          <p data-i18n="project1_desc">Automatically sorts files into folders based on file type, so downloads and desktops stay usable.</p>
+          <div class="card-langs"><span class="clang"><i class="fab fa-python"></i></span></div>
+          <h3 data-i18n="proj1_t">Python File Organizer</h3>
+          <p data-i18n="proj1_d">Automatically sorts files into folders based on file type, so downloads and desktops stay usable.</p>
           <div class="card-foot">
-            <span class="lang-tag">Python</span>
-            <a href="https://github.com/srijansingh9170-source/file-organizer-python" target="_blank" rel="noopener"><span data-i18n="view_source">→ View source</span></a>
+            <span class="ltag"><i class="fab fa-python"></i> Python</span>
+            <a href="https://github.com/srijansingh9170-source/file-organizer-python" target="_blank" rel="noopener" class="card-lnk"><span data-i18n="view_src">→ View source</span> <i class="fab fa-github"></i></a>
           </div>
         </div>
-      </div>
-
-      <div class="project-card">
+      </article>
+      <article class="proj-card reveal d2">
         <div class="card-head">
-          <span>dsa-practice/</span>
-          <span class="card-status status-practice" data-i18n="status_practice">practice</span>
+          <span><i class="fas fa-folder-open" style="color:var(--orange);margin-right:5px"></i>dsa-practice/</span>
+          <span class="card-badge s-prac" data-i18n="badge_practice">practice</span>
         </div>
         <div class="card-body">
-          <h3 data-i18n="project2_title">DSA Practice</h3>
-          <p data-i18n="project2_desc">A running collection of solved Data Structures &amp; Algorithms problems, used to sharpen problem-solving speed.</p>
+          <div class="card-langs"><span class="clang"><i class="fab fa-python"></i></span></div>
+          <h3 data-i18n="proj2_t">DSA Practice</h3>
+          <p data-i18n="proj2_d">A running collection of solved Data Structures &amp; Algorithms problems, used to sharpen problem-solving speed.</p>
           <div class="card-foot">
-            <span class="lang-tag">Python</span>
-            <a href="https://github.com/srijansingh9170-source/python-mini-projects" target="_blank" rel="noopener"><span data-i18n="view_source">→ View source</span></a>
+            <span class="ltag"><i class="fab fa-python"></i> Python</span>
+            <a href="https://github.com/srijansingh9170-source/python-mini-projects" target="_blank" rel="noopener" class="card-lnk"><span data-i18n="view_src">→ View source</span> <i class="fab fa-github"></i></a>
           </div>
         </div>
-      </div>
-
-      <div class="project-card">
+      </article>
+      <article class="proj-card reveal d3">
         <div class="card-head">
-          <span>portfolio/</span>
-          <span class="card-status status-shipped" data-i18n="status_shipped">shipped</span>
+          <span><i class="fas fa-globe" style="color:var(--success);margin-right:5px"></i>portfolio/</span>
+          <span class="card-badge s-ship" data-i18n="badge_shipped">shipped</span>
         </div>
         <div class="card-body">
-          <h3 data-i18n="project3_title">Portfolio Website</h3>
-          <p data-i18n="project3_desc">This site — built from scratch with HTML, CSS and JavaScript, no framework in the way.</p>
+          <div class="card-langs">
+            <span class="clang"><i class="fab fa-html5"></i></span>
+            <span class="clang"><i class="fab fa-css3-alt"></i></span>
+            <span class="clang"><i class="fab fa-js"></i></span>
+          </div>
+          <h3 data-i18n="proj3_t">Portfolio Website</h3>
+          <p data-i18n="proj3_d">This site — built from scratch with HTML, CSS and JavaScript, no framework in the way.</p>
           <div class="card-foot">
-            <span class="lang-tag">HTML / CSS / JS</span>
-            <a href="https://github.com/srijansingh9170-source/portfolio-website" target="_blank" rel="noopener"><span data-i18n="view_source">→ View source</span></a>
+            <span class="ltag"><i class="fab fa-html5"></i> HTML / CSS / JS</span>
+            <a href="https://github.com/srijansingh9170-source/portfolio-website" target="_blank" rel="noopener" class="card-lnk"><span data-i18n="view_src">→ View source</span> <i class="fab fa-github"></i></a>
           </div>
         </div>
-      </div>
-
+      </article>
     </div>
   </div>
 </section>
 
-<section class="section reveal">
+<!-- GITHUB STATS -->
+<section id="github" class="section reveal">
   <div class="wrap">
-    <div class="section-head">
-      <h2 data-i18n="section_metrics">GitHub Stats</h2>
-      <span class="section-tag" data-i18n="section_metrics_tag">04 — metrics</span>
+    <div class="sec-head">
+      <h2 data-i18n="sec_github">GitHub Stats</h2>
+      <span class="sec-tag" data-i18n="sec_github_tag">04 — metrics</span>
     </div>
-
-    <div class="metrics-panel">
-      <div class="panel-title">$ github stats --user srijansingh9170-source</div>
-
-      <div class="metrics-block">
-        <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=srijansingh9170-source&theme=default" alt="GitHub profile details for srijansingh9170-source" loading="lazy">
+    <div class="gh-panel reveal d1">
+      <div class="ptb">
+        <div class="tb-dots"><span class="tbd tbd-r"></span><span class="tbd tbd-y"></span><span class="tbd tbd-g"></span></div>
+        <span class="ptitle"><span class="camb">$</span> github stats <span class="cgrn">--user</span> srijansingh9170-source</span>
       </div>
-      <div class="metrics-block">
-        <img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=srijansingh9170-source&theme=default" alt="GitHub stats for srijansingh9170-source" loading="lazy">
-      </div>
-      <div class="metrics-block">
-        <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=srijansingh9170-source&theme=default" alt="Repos per language for srijansingh9170-source" loading="lazy">
+      <div class="gh-body">
+        <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=srijansingh9170-source&theme=github_dark" alt="GitHub profile" loading="lazy"/>
+        <div class="gh-grid">
+          <img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=srijansingh9170-source&theme=github_dark" alt="GitHub stats" loading="lazy"/>
+          <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=srijansingh9170-source&theme=github_dark" alt="Repos per language" loading="lazy"/>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- LEETCODE -->
+<section id="leetcode" class="section reveal">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 data-i18n="sec_lc">LeetCode</h2>
+      <span class="sec-tag" data-i18n="sec_lc_tag">05 — problem solving</span>
+    </div>
+    <div class="lc-layout">
+      <div class="lc-term reveal-l d1">
+        <div class="ptb">
+          <div class="tb-dots"><span class="tbd tbd-r"></span><span class="tbd tbd-y"></span><span class="tbd tbd-g"></span></div>
+          <span class="ptitle"><span class="camb">$</span> leetcode <span class="cgrn">--user</span> srijansingh9170</span>
+        </div>
+        <div class="lc-term-body" id="lcTerm">
+          <div class="tline"><span class="tprompt">$</span><span>fetching stats...</span></div>
+        </div>
+      </div>
+      <div class="lc-right reveal-r d2">
+        <div class="lc-rings">
+          <div class="ring-card">
+            <svg class="ring-svg" viewBox="0 0 80 80" aria-hidden="true">
+              <circle class="ring-bg" cx="40" cy="40" r="32"/>
+              <circle class="ring-fill ring-easy" cx="40" cy="40" r="32" id="ringEasy"/>
+            </svg>
+            <div class="ring-lbl"><span class="ring-n" id="lcEasy">—</span><span class="ring-d easy">Easy</span></div>
+          </div>
+          <div class="ring-card">
+            <svg class="ring-svg" viewBox="0 0 80 80" aria-hidden="true">
+              <circle class="ring-bg" cx="40" cy="40" r="32"/>
+              <circle class="ring-fill ring-med" cx="40" cy="40" r="32" id="ringMed"/>
+            </svg>
+            <div class="ring-lbl"><span class="ring-n" id="lcMed">—</span><span class="ring-d med">Medium</span></div>
+          </div>
+          <div class="ring-card">
+            <svg class="ring-svg" viewBox="0 0 80 80" aria-hidden="true">
+              <circle class="ring-bg" cx="40" cy="40" r="32"/>
+              <circle class="ring-fill ring-hard" cx="40" cy="40" r="32" id="ringHard"/>
+            </svg>
+            <div class="ring-lbl"><span class="ring-n" id="lcHard">—</span><span class="ring-d hard">Hard</span></div>
+          </div>
+        </div>
+        <div class="lc-chips">
+          <div class="lc-chip"><i class="fas fa-trophy"></i><span id="lcTotal">—</span><span class="chip-l">Total Solved</span></div>
+          <div class="lc-chip"><i class="fas fa-ranking-star"></i><span id="lcRank">—</span><span class="chip-l">Global Rank</span></div>
+          <div class="lc-chip"><i class="fas fa-percent"></i><span id="lcRate">—</span><span class="chip-l">Acceptance</span></div>
+          <div class="lc-chip"><i class="fas fa-layer-group"></i><span id="lcRep">—</span><span class="chip-l">Reputation</span></div>
+        </div>
+        <div class="lc-hmap">
+          <img id="lcHeatmap"
+            src="https://leetcard.jacoblin.cool/srijansingh9170?theme=dark&font=JetBrains%20Mono&ext=heatmap&border=0&radius=8"
+            alt="LeetCode activity heatmap" loading="lazy"/>
+        </div>
+      </div>
+    </div>
+    <div class="lc-cta">
+      <a href="https://leetcode.com/srijansingh9170" target="_blank" rel="noopener" class="btn btn-lc">
+        <i class="fas fa-code"></i> View LeetCode Profile
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- RESUME / CV -->
+<section id="cv" class="section reveal">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 data-i18n="sec_cv">Resume</h2>
+      <span class="sec-tag" data-i18n="sec_cv_tag">06 — credentials</span>
+    </div>
+    <div class="cv-layout">
+      <div class="cv-term reveal-l d1">
+        <div class="ptb">
+          <div class="tb-dots"><span class="tbd tbd-r"></span><span class="tbd tbd-y"></span><span class="tbd tbd-g"></span></div>
+          <span class="ptitle">resume.pdf</span>
+        </div>
+        <div class="cv-body">
+          <div class="tline"><span class="tprompt">$</span><span>cat resume.pdf <span class="cgrn">| head -20</span></span></div>
+          <div class="tline"><span class="tdim">Name:</span>   <span class="camb">Srijan Singh</span></div>
+          <div class="tline"><span class="tdim">Role:</span>   <span class="cgrn">B.Tech CSE · AI &amp; ML Engineer</span></div>
+          <div class="tline"><span class="tdim">Skills:</span> <span class="ptext">Python, C++, JS, AI/ML, SQL, Git</span></div>
+          <div class="tline"><span class="tdim">Status:</span> <span class="cgrn">✓ Open to opportunities</span></div>
+          <div class="tline" style="margin-top:12px"><span class="tprompt">$</span><span>wget resume.pdf <span class="tdim">-O SrijanSingh_Resume.pdf</span></span></div>
+          <div class="tline"><span class="cgrn">✓ Download ready</span></div>
+        </div>
+      </div>
+      <div class="cv-right reveal-r d2">
+        <h3 data-i18n="cv_h">Get my Resume</h3>
+        <p data-i18n="cv_desc">My resume covers my education, projects, technical skills, and open-source work. Updated and ready to share.</p>
+        <div class="cv-actions">
+          <a href="resume.pdf" download class="btn btn-primary btn-lg"><i class="fas fa-file-arrow-down"></i><span data-i18n="btn_cv">$ get resume.pdf</span></a>
+          <a href="https://linkedin.com/in/srijansingh" target="_blank" rel="noopener" class="btn btn-li btn-lg"><i class="fab fa-linkedin-in"></i><span data-i18n="btn_linkedin">LinkedIn profile</span></a>
+        </div>
+        <p class="cv-note" data-i18n="cv_note">Place <code>resume.pdf</code> in the same folder as <code>index.html</code> to enable the download button.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
 <section id="contact" class="section reveal">
   <div class="wrap">
-    <div class="section-head">
-      <h2 data-i18n="section_contact">Contact</h2>
-      <span class="section-tag" data-i18n="section_contact_tag">05 — reach out</span>
+    <div class="sec-head">
+      <h2 data-i18n="sec_contact">Contact</h2>
+      <span class="sec-tag" data-i18n="sec_contact_tag">07 — reach out</span>
     </div>
-
-    <div class="terminal">
-      <div class="terminal-bar"><span></span><span></span><span></span></div>
-      <div class="terminal-body">
-        <p class="line"><span class="prompt">$</span> cat contact.txt</p>
-        <p class="line"><span data-i18n="contact_line_email_label">email:</span> <a href="mailto:srijansingh9170@gmail.com">srijansingh9170@gmail.com</a></p>
-        <p class="line"><span data-i18n="contact_line_github_label">github:</span> <a href="https://github.com/srijansingh9170-source" target="_blank" rel="noopener">github.com/srijansingh9170-source</a></p>
+    <div class="contact-layout">
+      <div class="terminal reveal-l d1">
+        <div class="ptb">
+          <div class="tb-dots"><span class="tbd tbd-r"></span><span class="tbd tbd-y"></span><span class="tbd tbd-g"></span></div>
+          <span class="ptitle">contact.txt</span>
+        </div>
+        <div class="term-body">
+          <div class="tline"><span class="tprompt">$</span><span>cat contact.txt</span></div>
+          <div class="tline"><span class="tdim" data-i18n="ct_email_l">email:</span> <a href="mailto:srijansingh9170@gmail.com" class="tlink">srijansingh9170@gmail.com</a></div>
+          <div class="tline"><span class="tdim" data-i18n="ct_gh_l">github:</span> <a href="https://github.com/srijansingh9170-source" target="_blank" rel="noopener" class="tlink">github.com/srijansingh9170-source</a></div>
+          <div class="tline"><span class="tdim">linkedin:</span> <a href="https://linkedin.com/in/srijansingh" target="_blank" rel="noopener" class="tlink">linkedin.com/in/srijansingh</a></div>
+          <div class="tline"><span class="tdim">leetcode:</span> <a href="https://leetcode.com/srijansingh9170" target="_blank" rel="noopener" class="tlink">leetcode.com/srijansingh9170</a></div>
+          <div class="tline" style="margin-top:12px"><span class="tprompt">$</span><span class="tdim">echo $RESPONSE_TIME</span></div>
+          <div class="tline"><span class="cgrn">&lt; 24 hours</span></div>
+        </div>
       </div>
-    </div>
-
-    <div class="contact-actions">
-      <a href="mailto:srijansingh9170@gmail.com" class="btn btn-primary" data-i18n="btn_email_me">Email me</a>
-      <button id="copyEmailBtn" class="btn btn-ghost" type="button" data-i18n="btn_copy_email" data-email="srijansingh9170@gmail.com">Copy email</button>
-      <a href="https://github.com/srijansingh9170-source" target="_blank" rel="noopener" class="btn btn-ghost" data-i18n="btn_github_profile">GitHub profile</a>
+      <div class="contact-right reveal-r d2">
+        <h3 data-i18n="ct_h">Let's connect</h3>
+        <p data-i18n="ct_desc">Open to internships, collaborations, and interesting problems. Drop a message any time.</p>
+        <div class="contact-btns">
+          <a href="mailto:srijansingh9170@gmail.com" class="btn btn-primary"><i class="fas fa-envelope"></i><span data-i18n="btn_email">Email me</span></a>
+          <button id="copyEmailBtn" class="btn btn-ghost" type="button" data-email="srijansingh9170@gmail.com"><i class="fas fa-copy"></i><span data-i18n="btn_copy">Copy email</span></button>
+          <a href="https://linkedin.com/in/srijansingh" target="_blank" rel="noopener" class="btn btn-li"><i class="fab fa-linkedin-in"></i><span data-i18n="btn_linkedin">LinkedIn</span></a>
+          <a href="https://github.com/srijansingh9170-source" target="_blank" rel="noopener" class="btn btn-ghost"><i class="fab fa-github"></i><span data-i18n="btn_github">GitHub</span></a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
   <div class="wrap footer-inner">
-    <span>© 2026 Srijan Singh</span>
-    <span data-i18n="footer_tagline">designed &amp; built by hand — no template</span>
+    <div class="f-brand"><span class="fbr">&lt;</span>S<span class="fbr">/&gt;</span> Srijan Singh</div>
+    <span data-i18n="footer_tag">designed &amp; built by hand — no template</span>
+    <div class="f-links">
+      <a href="https://github.com/srijansingh9170-source" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://linkedin.com/in/srijansingh" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://leetcode.com/srijansingh9170" target="_blank" rel="noopener" aria-label="LeetCode"><i class="fas fa-code"></i></a>
+    </div>
   </div>
+  <div class="f-copy">© <span id="yr"></span> Srijan Singh. All rights reserved.</div>
 </footer>
 
+<button id="btt" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 <script src="script.js"></script>
 </body>
 </html>
