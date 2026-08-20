@@ -316,3 +316,19 @@ html[data-theme="light"] #btt{cursor:pointer;}
 .tlink:hover{text-decoration:underline;}
 @media(max-width:600px){.hero{padding-top:80px;min-height:calc(100vh - 56px);}.hero-actions .btn{width:100%;justify-content:center;}.hero-social{gap:7px}.soc-btn{font-size:11px;padding:7px 11px}.section{padding:72px 0}.wrap{padding:0 20px}.sec-head{margin-bottom:34px}.contact-right .btn{flex:1;min-width:140px}}
 @media(prefers-reduced-motion:reduce){.hero::after{display:none;}}
+
+/* --- refined portfolio pass --- */
+.status-dot{width:7px;height:7px;border-radius:50%;display:inline-block;background:var(--success);box-shadow:0 0 0 4px var(--suc-s);flex:0 0 auto;}
+.status-label{font-family:var(--fm);font-size:11px;color:var(--ink-m);text-transform:uppercase;letter-spacing:.08em;}
+.hero-status{gap:9px;}
+.hero-status #typingOut{color:var(--ink);font-weight:500;}
+.hero-actions .btn{min-width:142px;justify-content:center;}
+.about-cta .btn{min-width:138px;justify-content:center;}
+.cv-actions .btn{min-width:158px;justify-content:center;}
+.contact-btns .btn{min-width:128px;justify-content:center;}
+.footer-status{font-family:var(--fm);font-size:10px;color:var(--ink-m);display:inline-flex;align-items:center;gap:8px;text-transform:uppercase;letter-spacing:.06em;}
+.footer-status .status-dot{width:5px;height:5px;box-shadow:none;}
+.tprompt{color:var(--signal);font-weight:700;}
+@media(max-width:600px){
+  .hero-actions .btn,.about-cta .btn,.cv-actions .btn,.contact-btns .btn{min-width:0;}
+}
