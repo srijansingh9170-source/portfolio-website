@@ -73,7 +73,6 @@ header.scrolled{box-shadow:0 2px 20px var(--sh);}
 
 .nav-links{display:flex;gap:2px;}
 .nav-links a{font-family:var(--fm);font-size:12px;color:var(--ink-s);padding:6px 12px;border-radius:20px;transition:all .25s var(--eo);}
-.nav-links a::before{content:"./";color:var(--signal);font-size:11px;}
 .nav-links a:hover,.nav-links a.active{color:var(--signal);background:var(--sig-s);}
 
 .nav-ctrl{display:flex;align-items:center;gap:8px;}
@@ -296,3 +295,24 @@ html[data-theme="light"] #btt{cursor:pointer;}
 .d1{transition-delay:.08s;}.d2{transition-delay:.18s;}.d3{transition-delay:.28s;}
 @media(prefers-reduced-motion:reduce){.reveal,.reveal-l,.reveal-r{opacity:1!important;transform:none!important;transition:none!important;}}
 @keyframes mtrail{from{opacity:.5;transform:translate(-50%,-50%) scale(1);}to{opacity:0;transform:translate(-50%,-50%) scale(0);}}
+
+/* --- Portfolio polish v2 --- */
+.hero::after{content:"";position:absolute;inset:auto -10% -22% 35%;height:420px;background:radial-gradient(circle,rgba(108,134,255,.16),transparent 68%);filter:blur(18px);pointer-events:none;z-index:0;}
+.hero-pills .hpill{border-color:rgba(108,134,255,.22);box-shadow:0 12px 35px var(--sh);}
+.hero-actions .btn-primary{background:linear-gradient(135deg,var(--ink),#2a2f40);}
+.hero-actions .btn-primary:hover{background:var(--signal);}
+.hero-social .soc-btn{backdrop-filter:blur(12px);}
+.section{scroll-margin-top:72px;}
+.proj-card,.sk-card,.lc-chip,.cfg-panel,.gh-panel,.terminal,.cv-term{will-change:transform;}
+.proj-card{background:linear-gradient(180deg,var(--surface),var(--surface2));}
+.proj-card:hover{box-shadow:0 24px 60px var(--shl),0 0 0 1px rgba(108,134,255,.08);}
+.card-head{letter-spacing:.01em;}
+.sk-card{background:linear-gradient(135deg,var(--surface),var(--surface2));}
+.lc-hmap{background:var(--panel);padding:8px;}
+.lc-hmap img{border-radius:8px;}
+.cv-note{border-left:3px solid var(--signal);}
+.contact-right .btn{min-width:132px;justify-content:center;}
+.tlink{text-underline-offset:3px;}
+.tlink:hover{text-decoration:underline;}
+@media(max-width:600px){.hero{padding-top:80px;min-height:calc(100vh - 56px);}.hero-actions .btn{width:100%;justify-content:center;}.hero-social{gap:7px}.soc-btn{font-size:11px;padding:7px 11px}.section{padding:72px 0}.wrap{padding:0 20px}.sec-head{margin-bottom:34px}.contact-right .btn{flex:1;min-width:140px}}
+@media(prefers-reduced-motion:reduce){.hero::after{display:none;}}
