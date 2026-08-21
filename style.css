@@ -246,6 +246,35 @@ html[data-theme="dark"] .card-head{background:var(--panel2);}
 .lc-hmap img{width:100%;display:block;}
 .lc-cta{display:flex;justify-content:center;}
 
+/* Clean LeetCode presentation — stats only, no heatmap/API state */
+.lc-clean{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:28px;
+  padding:30px 4px 10px;
+}
+.lc-stats{display:grid;grid-template-columns:repeat(4,minmax(90px,1fr));gap:0;flex:1;max-width:620px;}
+.lc-stat{display:flex;flex-direction:column;gap:4px;padding:4px 28px;border-left:1px solid var(--line);}
+.lc-stat:first-child{border-left:0;padding-left:0;}
+.lc-stat strong{font-family:var(--fd);font-size:clamp(30px,3vw,44px);line-height:1;font-weight:700;letter-spacing:-.04em;color:var(--ink);}
+.lc-stat span{font:10px var(--fm);text-transform:uppercase;letter-spacing:.1em;color:var(--ink-m);}
+.lc-stat-easy strong{color:var(--easy);}.lc-stat-medium strong{color:var(--med);}.lc-stat-hard strong{color:var(--hard);}
+.lc-profile-link{display:inline-flex;align-items:center;gap:12px;padding:12px 0;font:12px var(--fm);color:var(--ink-s);border-bottom:1px solid var(--line);transition:all .3s var(--eo);white-space:nowrap;}
+.lc-profile-link i{font-size:11px;color:var(--lc-orange);transition:transform .3s var(--eb);}
+.lc-profile-link:hover{color:var(--ink);border-color:var(--lc-orange);}
+.lc-profile-link:hover i{transform:translate(3px,-3px);}
+@media(max-width:700px){
+  .lc-clean{flex-direction:column;align-items:flex-start;gap:24px;padding-top:10px;}
+  .lc-stats{width:100%;max-width:none;}
+  .lc-stat{padding:4px 16px;}
+  .lc-stat:first-child{padding-left:0;}
+}
+@media(max-width:460px){
+  .lc-stats{grid-template-columns:repeat(2,1fr);gap:18px 0;}
+  .lc-stat:nth-child(3){border-left:0;padding-left:0;}
+}
+
 .cv-layout{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start;}
 @media(max-width:760px){.cv-layout{grid-template-columns:1fr;}}
 .cv-term{background:var(--panel);border:1px solid var(--lined);border-radius:var(--r2);overflow:hidden;box-shadow:0 8px 28px var(--sh);transition:transform .4s var(--eb),box-shadow .4s;}
@@ -325,7 +354,7 @@ html[data-theme="light"] #btt{cursor:pointer;}
 .hero-v3::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 72% 46%,rgba(108,134,255,.12),transparent 28%),radial-gradient(circle at 30% 78%,rgba(168,85,247,.08),transparent 24%);pointer-events:none;z-index:0;}
 .hero-v3 .hero-grid{opacity:.26;background-size:72px 72px;mask-image:radial-gradient(ellipse 90% 90% at 50% 48%,black 10%,transparent 80%);}
 .hero-v3 .hero-watermark{position:absolute;left:-2vw;bottom:4vh;font-family:var(--fd);font-weight:800;font-size:clamp(90px,17vw,240px);letter-spacing:-.08em;line-height:.7;color:transparent;-webkit-text-stroke:1px color-mix(in srgb,var(--ink) 7%,transparent);opacity:.65;z-index:0;pointer-events:none;}
-.hero-portfolio-word{position:absolute;left:50%;top:7%;transform:translateX(-50%);font-family:var(--fd);font-weight:800;font-size:clamp(82px,14vw,190px);letter-spacing:-.09em;line-height:.8;white-space:nowrap;color:transparent;-webkit-text-stroke:1px color-mix(in srgb,var(--ink) 15%,transparent);z-index:0;pointer-events:none;opacity:.8;}
+.hero-portfolio-word{position:absolute;left:50%;top:7%;transform:translateX(-50%);font-family:var(--fd);font-weight:800;font-size:clamp(82px,14vw,190px);letter-spacing:-.09em;line-height:.8;white-space:nowrap;color:rgba(185,28,28,.22);-webkit-text-stroke:1px rgba(185,28,28,.34);z-index:0;pointer-events:none;opacity:.9;}
 .hero-stage{position:relative;z-index:3;width:min(1180px,calc(100% - 56px));margin:0 auto;min-height:calc(100vh - 150px);display:grid;grid-template-columns:minmax(0,.92fr) minmax(430px,1.08fr);align-items:center;gap:30px;}
 .hero-copy{position:relative;z-index:6;padding:50px 0 60px;max-width:640px;}
 .hero-index{display:flex;align-items:center;gap:10px;font:10px var(--fm);letter-spacing:.14em;color:var(--ink-m);margin-bottom:24px;text-transform:uppercase;}
@@ -394,3 +423,6 @@ html[data-theme="light"] #btt{cursor:pointer;}
 /* Soft cursor aura */
 #cursorAura{position:fixed;width:280px;height:280px;border-radius:50%;pointer-events:none;z-index:0;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(108,134,255,.10),rgba(168,85,247,.045) 35%,transparent 70%);filter:blur(10px);opacity:0;transition:opacity .35s ease;mix-blend-mode:screen;}
 #cursorAura.on{opacity:1;}
+
+/* v6 visual cleanup */
+.lc-section .lc-layout,.lc-section .lc-showcase .lc-card-frame{display:none;}

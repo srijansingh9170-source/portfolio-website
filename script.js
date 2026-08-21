@@ -269,8 +269,6 @@ var Typer = (function() {
     var dark = document.documentElement.getAttribute('data-theme') === 'dark';
     btn.setAttribute('aria-pressed', dark ? 'true' : 'false');
     if (icon) icon.textContent = dark ? '☀️' : '🌙';
-    var img = document.getElementById('lcHeatmap');
-    if (img) img.src = 'https://leetcard.jacoblin.cool/' + CFG.lc + '?theme=' + (dark ? 'dark' : 'light') + '&font=JetBrains%20Mono&ext=heatmap&border=0&radius=8';
   }
   sync();
   btn.addEventListener('click', function() {
