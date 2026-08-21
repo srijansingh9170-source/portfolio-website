@@ -269,6 +269,8 @@ var Typer = (function() {
     var dark = document.documentElement.getAttribute('data-theme') === 'dark';
     btn.setAttribute('aria-pressed', dark ? 'true' : 'false');
     if (icon) icon.textContent = dark ? '☀️' : '🌙';
+    var img = document.getElementById('lcHeatmap');
+    if (img) img.src = 'https://leetcard.jacoblin.cool/' + CFG.lc + '?theme=' + (dark ? 'dark' : 'light') + '&font=JetBrains%20Mono&ext=heatmap&border=0&radius=8';
   }
   sync();
   btn.addEventListener('click', function() {
@@ -349,38 +351,56 @@ var Typer = (function() {
   els.forEach(function(el) { obs.observe(el); });
 })();
 
-/* Fluid cursor */
+/* Fluid cursor + ambient spotlight */
 (function() {
-  var core = document.getElementById('cursor-core');
-  var glow = document.getElementById('cursor-glow');
-  var aura = document.getElementById('cursor-aura');
-  if (!core || !glow || !aura || window.innerWidth < 768 || noMotion) return;
-
-  var x = innerWidth / 2, y = innerHeight / 2;
-  var gx = x, gy = y, ax = x, ay = y;
-  var hovering = false;
-
+  var c = document.getElementById('cur'), f = document.getElementById('cfl'), a = document.getElementById('cursorAura');
+  if (!c || !f || window.innerWidth < 768 || noMotion) return;
+  var mx = innerWidth / 2, my = innerHeight / 2, fx = mx, fy = my, ax = mx, ay = my;
+  var raf = false;
   document.addEventListener('mousemove', function(e) {
-    x = e.clientX; y = e.clientY;
-    document.documentElement.style.setProperty('--mx', x + 'px');
-    document.documentElement.style.setProperty('--my', y + 'px');
+    mx = e.clientX; my = e.clientY;
+    c.style.left = mx + 'px'; c.style.top = my + 'px';
+    document.documentElement.style.setProperty('--mouse-x', mx + 'px');
+    document.documentElement.style.setProperty('--mouse-y', my + 'px');
+    raf = true;
   }, {passive:true});
-
-  document.querySelectorAll('a,button,.sk-card,.proj-card,.lc-profile-card,select').forEach(function(el) {
-    el.addEventListener('mouseenter', function(){ hovering = true; document.body.classList.add('cursor-hover'); });
-    el.addEventListener('mouseleave', function(){ hovering = false; document.body.classList.remove('cursor-hover'); });
+  (function af() {
+    fx += (mx - fx) * .12; fy += (my - fy) * .12;
+    ax += (mx - ax) * .055; ay += (my - ay) * .055;
+    f.style.left = fx + 'px'; f.style.top = fy + 'px';
+    if (a) { a.style.left = ax + 'px'; a.style.top = ay + 'px'; }
+    requestAnimationFrame(af);
+  })();
+  document.querySelectorAll('a,button,.sk-card,.proj-card,.lc-card-frame,.cfg-panel,.gh-panel,.terminal,.cv-term,select').forEach(function(el) {
+    el.addEventListener('mouseenter', function() { c.classList.add('exp'); f.classList.add('exp'); if(a) a.classList.add('exp'); });
+    el.addEventListener('mouseleave', function() { c.classList.remove('exp'); f.classList.remove('exp'); if(a) a.classList.remove('exp'); });
   });
+  document.querySelectorAll('.proj-card,.cfg-panel,.gh-panel,.terminal,.cv-term').forEach(function(el){
+    el.addEventListener('mousemove',function(e){
+      var r=el.getBoundingClientRect();
+      el.style.setProperty('--mx',((e.clientX-r.left)/r.width*100)+'%');
+      el.style.setProperty('--my',((e.clientY-r.top)/r.height*100)+'%');
+    });
+  });
+})();
 
-  function frame() {
-    gx += (x - gx) * .18; gy += (y - gy) * .18;
-    ax += (x - ax) * .055; ay += (y - ay) * .055;
-    core.style.transform = 'translate3d(' + x + 'px,' + y + 'px,0) translate(-50%,-50%)';
-    glow.style.transform = 'translate3d(' + gx + 'px,' + gy + 'px,0) translate(-50%,-50%)';
-    aura.style.transform = 'translate3d(' + ax + 'px,' + ay + 'px,0) translate(-50%,-50%)';
-    aura.style.opacity = hovering ? '.9' : '.55';
-    requestAnimationFrame(frame);
+/* Small, optional-feeling interaction sound — only fires on deliberate clicks. */
+(function(){
+  var ctx = null;
+  function ping(){
+    try{
+      ctx = ctx || new (window.AudioContext || window.webkitAudioContext)();
+      if(ctx.state === 'suspended') ctx.resume();
+      var now=ctx.currentTime, o=ctx.createOscillator(), g=ctx.createGain();
+      o.type='sine'; o.frequency.setValueAtTime(620,now); o.frequency.exponentialRampToValueAtTime(880,now+.09);
+      g.gain.setValueAtTime(.0001,now); g.gain.exponentialRampToValueAtTime(.022,now+.012); g.gain.exponentialRampToValueAtTime(.0001,now+.13);
+      o.connect(g); g.connect(ctx.destination); o.start(now); o.stop(now+.14);
+    }catch(e){}
   }
-  frame();
+  document.addEventListener('click',function(e){
+    var t=e.target.closest && e.target.closest('.btn,.soc-btn,.icon-btn,.card-lnk,.nav-links a');
+    if(t) ping();
+  },{passive:true});
 })();
 
 /* Particles */
@@ -425,13 +445,13 @@ var Typer = (function() {
 (function() {
   var ld = document.getElementById('loader'), ldT = document.getElementById('ldText');
   if (!ld) return;
-  var msgs = ['booting interface...', 'loading modules...', 'syncing profile...', 'almost ready...'];
+  var msgs = ['compiling assets...', 'loading modules...', 'syncing profile...', 'almost ready...'];
   var i = 0;
   var iv = setInterval(function() { if (i < msgs.length && ldT) ldT.textContent = msgs[i++]; else clearInterval(iv); }, 440);
-  setTimeout(function() { ld.classList.add('out'); initPost(); }, 1850);
+  setTimeout(function() { ld.classList.add('out'); fetchLCStats(); initPost(); }, 1850);
 })();
 
-function initPost() { initCounters(); initTilt(); }
+function initPost() { initCounters(); initTilt(); initTrail(); }
 
 /* Navbar */
 (function() {
@@ -474,7 +494,15 @@ function animC(el) {
   })(s);
 }
 
-/* LeetCode data is intentionally link-only: no fragile third-party API calls. */
+/* LeetCode profile snapshot — no fragile client-side API call.
+   The profile card itself is served by LeetCard and carries the current
+   public snapshot, so the page never renders fake 0 / — values or CORS errors. */
+function fetchLCStats() {
+  var img = document.getElementById('lcHeatmap');
+  if (!img) return;
+  var dark = document.documentElement.getAttribute('data-theme') === 'dark';
+  img.src = 'https://leetcard.jacoblin.cool/' + CFG.lc + '?theme=' + (dark ? 'dark' : 'light') + '&font=JetBrains%20Mono&ext=heatmap&border=0&radius=8';
+}
 
 /* 3D Tilt */
 function initTilt() {
@@ -486,6 +514,17 @@ function initTilt() {
     });
     c.addEventListener('mouseleave', function() { c.style.transition='transform .5s ease'; c.style.transform=''; });
     c.addEventListener('mouseenter', function() { c.style.transition='none'; });
+  });
+}
+
+/* Mouse trail */
+function initTrail() {
+  if (window.innerWidth < 768 || noMotion) return;
+  document.addEventListener('mousemove', function(e) {
+    var d = document.createElement('div');
+    d.style.cssText = 'position:fixed;left:'+e.clientX+'px;top:'+e.clientY+'px;width:4px;height:4px;border-radius:50%;background:rgba(108,134,255,.28);pointer-events:none;z-index:9997;transform:translate(-50%,-50%);animation:mtrail .6s ease forwards';
+    document.body.appendChild(d);
+    setTimeout(function() { if (d.parentNode) d.parentNode.removeChild(d); }, 600);
   });
 }
 

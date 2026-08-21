@@ -29,9 +29,9 @@
   </div>
 </div>
 
-<div id="cursor-core" aria-hidden="true"></div>
-<div id="cursor-glow" aria-hidden="true"></div>
-<div id="cursor-aura" aria-hidden="true"></div>
+<div id="cur" aria-hidden="true"></div>
+<div id="cfl" aria-hidden="true"></div>
+<div id="cursorAura" aria-hidden="true"></div>
 <div id="pbar" aria-hidden="true"></div>
 <canvas id="pc" aria-hidden="true"></canvas>
 
@@ -81,10 +81,11 @@
 
 <!-- HERO -->
 <section id="home" class="hero">
-  <div class="fluid-orbit fluid-orbit-a" aria-hidden="true"></div>
-  <div class="fluid-orbit fluid-orbit-b" aria-hidden="true"></div>
-  <div class="cursor-spotlight" aria-hidden="true"></div>
   <div class="hero-grid" aria-hidden="true"></div>
+  <div class="hero-aurora hero-aurora-a" aria-hidden="true"></div>
+  <div class="hero-aurora hero-aurora-b" aria-hidden="true"></div>
+  <div class="hero-orbit" aria-hidden="true"><span></span><span></span><span></span></div>
+  <div class="hero-watermark" aria-hidden="true">SRIJAN</div>
   <div class="hero-graph" aria-hidden="true">
     <svg viewBox="0 0 800 400" preserveAspectRatio="none">
       <path class="curve" d="M-20,60 C120,80 180,220 280,240 C380,260 420,140 520,150 C620,160 660,300 820,320"/>
@@ -109,10 +110,9 @@
         <a href="#contact" class="btn btn-ghost"><i class="fas fa-paper-plane"></i><span data-i18n="btn_ping">Let's talk</span></a>
       </div>
       <div class="hero-social">
-        <a href="https://github.com/srijansingh9170-source" target="_blank" rel="noopener" class="soc-btn"><i class="fab fa-github"></i> GitHub</a>
-        <a href="https://www.linkedin.com/in/srijan-singh-113173373" target="_blank" rel="noopener" class="soc-btn soc-li"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
-        <a href="https://leetcode.com/u/srijansingh23/" target="_blank" rel="noopener" class="soc-btn soc-lc"><i class="fas fa-code"></i> LeetCode</a>
-        <a href="mailto:srijansingh9170@gmail.com" class="soc-btn soc-mail"><i class="fas fa-envelope"></i> Email</a>
+        <a href="https://www.linkedin.com/in/srijan-singh-113173373" target="_blank" rel="noopener" class="soc-btn soc-li" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i><span>LinkedIn</span></a>
+        <a href="https://github.com/srijansingh9170-source" target="_blank" rel="noopener" class="soc-btn" aria-label="GitHub"><i class="fab fa-github"></i><span>GitHub</span></a>
+        <a href="https://leetcode.com/u/srijansingh23/" target="_blank" rel="noopener" class="soc-btn soc-lc" aria-label="LeetCode"><i class="fas fa-code"></i><span>LeetCode</span></a>
       </div>
       <div class="hero-meta">
         <div class="hero-stat"><span class="hsn" data-target="3">0</span><span class="hsu">+</span><span class="hsl" data-i18n="meta_proj">projects</span></div>
@@ -273,31 +273,29 @@
 </section>
 
 <!-- LEETCODE -->
-<section id="leetcode" class="section reveal">
+<section id="leetcode" class="section reveal lc-section">
   <div class="wrap">
     <div class="sec-head">
       <h2 data-i18n="sec_lc">LeetCode</h2>
       <span class="sec-tag" data-i18n="sec_lc_tag">05 — problem solving</span>
     </div>
-    <div class="lc-profile-card reveal d1">
-      <div class="lc-profile-main">
-        <div class="lc-mark" aria-hidden="true"><i class="fas fa-code"></i></div>
-        <div>
-          <span class="lc-kicker">PROBLEM SOLVING / DSA</span>
-          <h3>srijansingh23</h3>
-          <p>Practising data structures, algorithms and competitive problem solving — one problem at a time.</p>
-          <div class="lc-profile-meta">
-            <span><i class="fas fa-circle-check"></i> Active profile</span>
-            <span><i class="fas fa-code-branch"></i> DSA practice</span>
-            <span><i class="fas fa-chart-line"></i> Continuous learning</span>
-          </div>
+    <div class="lc-showcase reveal d1">
+      <div class="lc-copy">
+        <span class="lc-kicker"><i class="fas fa-code"></i> Problem solving / DSA</span>
+        <h3>One problem at a time.</h3>
+        <p>My LeetCode profile is where I practise data structures, algorithms, and the small details that turn a solution into a better solution.</p>
+        <div class="lc-mini">
+          <span><b>15</b> solved</span>
+          <span><b>12</b> easy</span>
+          <span><b>3</b> medium</span>
         </div>
-      </div>
-      <div class="lc-profile-side">
-        <span class="lc-id">leetcode / srijansingh23</span>
         <a href="https://leetcode.com/u/srijansingh23/" target="_blank" rel="noopener" class="btn btn-lc">
-          <i class="fas fa-arrow-up-right-from-square"></i> Open profile
+          <i class="fas fa-arrow-up-right-from-square"></i><span>Open LeetCode</span>
         </a>
+      </div>
+      <div class="lc-card-frame">
+        <div class="lc-card-top"><span>leetcode / srijansingh23</span><span>profile snapshot</span></div>
+        <img id="lcHeatmap" src="https://leetcard.jacoblin.cool/srijansingh23?theme=dark&amp;font=JetBrains%20Mono&amp;ext=heatmap&amp;border=0&amp;radius=8" alt="LeetCode profile and activity snapshot for srijansingh23" loading="lazy"/>
       </div>
     </div>
   </div>
