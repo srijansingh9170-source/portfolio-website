@@ -40,7 +40,7 @@
     <a href="#home" class="brand">
       <div class="brand-av">
         <div class="brand-av-i">
-          <img src="profile.jpg" alt="Srijan" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <img src="profile.png" alt="Srijan" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
           <span class="av-fb">S</span>
         </div>
       </div>
@@ -80,27 +80,32 @@
 </header>
 
 <!-- HERO -->
-<section id="home" class="hero">
+<section id="home" class="hero hero-v3">
   <div class="hero-grid" aria-hidden="true"></div>
   <div class="hero-aurora hero-aurora-a" aria-hidden="true"></div>
   <div class="hero-aurora hero-aurora-b" aria-hidden="true"></div>
+  <div class="hero-aurora hero-aurora-c" aria-hidden="true"></div>
   <div class="hero-orbit" aria-hidden="true"><span></span><span></span><span></span></div>
   <div class="hero-watermark" aria-hidden="true">SRIJAN</div>
+  <div class="hero-portfolio-word" aria-hidden="true">PORTFOLIO</div>
   <div class="hero-graph" aria-hidden="true">
     <svg viewBox="0 0 800 400" preserveAspectRatio="none">
       <path class="curve" d="M-20,60 C120,80 180,220 280,240 C380,260 420,140 520,150 C620,160 660,300 820,320"/>
     </svg>
   </div>
   <div class="hero-pills" aria-hidden="true">
-    <div class="hpill"><i class="fab fa-python" style="color:#3776ab"></i> Python</div>
-    <div class="hpill"><i class="fas fa-brain" style="color:#a855f7"></i> AI/ML</div>
-    <div class="hpill"><i class="fas fa-code" style="color:#06b6d4"></i> C++</div>
-    <div class="hpill"><i class="fab fa-git-alt" style="color:#f05032"></i> Git</div>
+    <div class="hpill"><i class="fab fa-python"></i> Python</div>
+    <div class="hpill"><i class="fas fa-brain"></i> AI / ML</div>
+    <div class="hpill"><i class="fas fa-code"></i> C++</div>
+    <div class="hpill"><i class="fab fa-git-alt"></i> Git</div>
   </div>
-  <div class="wrap">
-    <div class="hero-inner">
+
+  <div class="hero-stage">
+    <div class="hero-copy">
+      <div class="hero-index"><span>00</span><i></i><span>INTRO</span></div>
       <p class="eyebrow" data-i18n="hero_eyebrow">B.Tech CSE · AI &amp; ML</p>
       <h1 data-i18n-html="hero_h">Building intelligent systems,<br><span class="accent">one commit</span> at a time.</h1>
+      <p class="hero-lede">AI/ML student, developer &amp; problem solver — building useful things with code, curiosity and a little obsession with clean systems.</p>
       <p class="hero-status">
         <span class="status-dot" aria-hidden="true"></span><span class="status-label">currently</span>
         <span id="typingOut"></span><span class="tcur" aria-hidden="true"></span>
@@ -114,21 +119,26 @@
         <a href="https://github.com/srijansingh9170-source" target="_blank" rel="noopener" class="soc-btn" aria-label="GitHub"><i class="fab fa-github"></i><span>GitHub</span></a>
         <a href="https://leetcode.com/u/srijansingh23/" target="_blank" rel="noopener" class="soc-btn soc-lc" aria-label="LeetCode"><i class="fas fa-code"></i><span>LeetCode</span></a>
       </div>
-      <div class="hero-meta">
-        <div class="hero-stat"><span class="hsn" data-target="3">0</span><span class="hsu">+</span><span class="hsl" data-i18n="meta_proj">projects</span></div>
-        <div class="hdiv"></div>
-        <div class="hero-stat"><span class="hsn" data-target="8">0</span><span class="hsu">+</span><span class="hsl" data-i18n="meta_tech">technologies</span></div>
-        <div class="hdiv"></div>
-        <div class="hero-stat"><span class="hsn" data-target="100">0</span><span class="hsu">%</span><span class="hsl" data-i18n="meta_open">open to work</span></div>
+    </div>
+
+    <div class="hero-portrait-wrap">
+      <div class="hero-portrait-glow"></div>
+      <div class="hero-portrait-ring hero-portrait-ring-a"></div>
+      <div class="hero-portrait-ring hero-portrait-ring-b"></div>
+      <div class="hero-portrait-frame">
+        <img class="hero-portrait" src="profile.png" alt="Srijan Singh" loading="eager"/>
       </div>
+      <div class="portrait-label portrait-label-top">AI / ML · CSE</div>
+      <div class="portrait-label portrait-label-bottom">SRIJAN SINGH <span>↗</span></div>
     </div>
   </div>
-  <div class="scroll-hint" aria-hidden="true">
-    <div class="sc-mouse"><div class="sc-wheel"></div></div>
-    <span>scroll</span>
+
+  <div class="hero-bottomline">
+    <span>SCROLL TO EXPLORE</span>
+    <span class="hero-line"></span>
+    <span>01 — PROFILE</span>
   </div>
 </section>
-
 <!-- ABOUT -->
 <section id="about" class="section reveal">
   <div class="wrap">

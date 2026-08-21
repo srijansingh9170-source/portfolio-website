@@ -14,7 +14,7 @@ var TR = {
     badge_otw:'Open to work',hero_eyebrow:'B.Tech CSE · AI & ML',
     hero_h:'Building intelligent systems,<br><span class="accent">one commit</span> at a time.',
     typing:['training on AI & ML fundamentals','building open-source tools','solving DSA problems','debugging... everything','crafting this portfolio'],
-    btn_projects:'Explore work',btn_cv:'Open resume',btn_ping:"Let's talk",btn_linkedin:'Connect on LinkedIn',
+    btn_projects:'View projects',btn_cv:'Get resume',btn_ping:'Contact me',btn_linkedin:'LinkedIn profile',
     meta_proj:'projects',meta_tech:'technologies',meta_open:'open to work',
     sec_about:'About',sec_about_tag:'01 — profile',sec_skills:'Skills',sec_skills_tag:'02 — toolkit',
     sec_projects:'Projects',sec_projects_tag:'03 — shipped',sec_github:'GitHub Stats',sec_github_tag:'04 — metrics',
@@ -28,11 +28,11 @@ var TR = {
     proj2_t:'DSA Practice',proj2_d:'A running collection of solved Data Structures & Algorithms problems, used to sharpen problem-solving speed.',
     proj3_t:'Portfolio Website',proj3_d:'This site — built from scratch with HTML, CSS and JavaScript, no framework in the way.',
     badge_shipped:'shipped',badge_practice:'practice',view_src:'→ View source',
-    cv_h:'A quick snapshot',cv_desc:'My resume covers my education, projects, technical skills, and open-source work. Updated and ready to share.',
-    cv_note:'Open the current version directly as a PDF.',
+    cv_h:'Get my Resume',cv_desc:'My resume covers my education, projects, technical skills, and open-source work. Updated and ready to share.',
+    cv_note:'Place resume.pdf in the same folder as index.html to enable direct download.',
     ct_h:"Let's connect",ct_desc:'Open to internships, collaborations, and interesting problems. Drop a message any time.',
     ct_email_l:'email:',ct_gh_l:'github:',
-    btn_email:'Email me',btn_copy:'Copy email',btn_copied:'Copied!',btn_github:'Open source',btn_stack:'View stack',
+    btn_email:'Email me',btn_copy:'Copy email',btn_copied:'Copied!',btn_github:'GitHub',
     footer_tag:'designed & built by hand — no template'
   },
   hi:{
@@ -41,7 +41,7 @@ var TR = {
     badge_otw:'काम के लिए उपलब्ध',hero_eyebrow:'बी.टेक सीएसई · एआई और एमएल',
     hero_h:'हर कमिट के साथ,<br><span class="accent">बुद्धिमान सिस्टम</span> बना रहा हूँ।',
     typing:['एआई और एमएल सीख रहा हूँ','ओपन-सोर्स टूल्स बना रहा हूँ','DSA हल कर रहा हूँ','...डीबग कर रहा हूँ','यह पोर्टफोलियो बना रहा हूँ'],
-    btn_projects:'प्रोजेक्ट देखें',btn_cv:'Resume खोलें',btn_ping:'बात करें',btn_linkedin:'LinkedIn से जुड़ें',
+    btn_projects:'प्रोजेक्ट देखें',btn_cv:'Resume डाउनलोड करें',btn_ping:'संपर्क करें',btn_linkedin:'LinkedIn प्रोफ़ाइल',
     meta_proj:'प्रोजेक्ट्स',meta_tech:'तकनीकें',meta_open:'काम के लिए उपलब्ध',
     sec_about:'परिचय',sec_about_tag:'०१ — प्रोफ़ाइल',sec_skills:'कौशल',sec_skills_tag:'०२ — टूलकिट',
     sec_projects:'प्रोजेक्ट्स',sec_projects_tag:'०३ — पूर्ण',sec_github:'गिटहब आंकड़े',sec_github_tag:'०४ — मेट्रिक्स',
@@ -55,10 +55,10 @@ var TR = {
     proj2_t:'DSA अभ्यास',proj2_d:'हल की गई डेटा स्ट्रक्चर्स और एल्गोरिद्म समस्याओं का संग्रह।',
     proj3_t:'पोर्टफोलियो वेबसाइट',proj3_d:'HTML, CSS और JavaScript से बनाई गई, बिना किसी फ्रेमवर्क के।',
     badge_shipped:'पूर्ण',badge_practice:'अभ्यास',view_src:'→ सोर्स देखें',
-    cv_h:'मेरा रेज़ुमे',cv_desc:'शिक्षा, प्रोजेक्ट्स और तकनीकी कौशल।',cv_note:'वर्तमान रिज़्यूमे को PDF के रूप में खोलें।',
+    cv_h:'मेरा रेज़ुमे',cv_desc:'शिक्षा, प्रोजेक्ट्स और तकनीकी कौशल।',cv_note:'डाउनलोड के लिए resume.pdf को index.html के साथ रखें।',
     ct_h:'जुड़ें',ct_desc:'इंटर्नशिप, सहयोग और दिलचस्प समस्याओं के लिए उपलब्ध हूँ।',
     ct_email_l:'ईमेल:',ct_gh_l:'गिटहब:',
-    btn_email:'ईमेल करें',btn_copy:'ईमेल कॉपी करें',btn_copied:'कॉपी हो गया!',btn_github:'ओपन सोर्स',btn_stack:'स्टैक देखें',
+    btn_email:'ईमेल करें',btn_copy:'ईमेल कॉपी करें',btn_copied:'कॉपी हो गया!',btn_github:'GitHub',
     footer_tag:'हाथ से डिज़ाइन — कोई टेम्पलेट नहीं'
   },
   es:{
@@ -67,7 +67,7 @@ var TR = {
     badge_otw:'Disponible para trabajar',hero_eyebrow:'Ing. en Sistemas · IA y ML',
     hero_h:'Construyendo sistemas inteligentes,<br><span class="accent">un commit</span> a la vez.',
     typing:['aprendiendo IA y ML','creando tools open source','resolviendo DSA','depurando todo','creando este portafolio'],
-    btn_projects:'Ver proyectos',btn_cv:'Abrir CV',btn_ping:'Hablemos',btn_linkedin:'No LinkedIn conectar',
+    btn_projects:'Ver proyectos',btn_cv:'Descargar CV',btn_ping:'Contactar',btn_linkedin:'Perfil LinkedIn',
     meta_proj:'proyectos',meta_tech:'tecnologías',meta_open:'disponible',
     sec_about:'Acerca de mí',sec_about_tag:'01 — perfil',sec_skills:'Habilidades',sec_skills_tag:'02 — herramientas',
     sec_projects:'Proyectos',sec_projects_tag:'03 — publicados',sec_github:'GitHub Stats',sec_github_tag:'04 — métricas',
@@ -80,9 +80,9 @@ var TR = {
     proj2_t:'Práctica DSA',proj2_d:'Colección de problemas de estructuras de datos.',
     proj3_t:'Portafolio web',proj3_d:'HTML, CSS y JS, sin framework.',
     badge_shipped:'publicado',badge_practice:'práctica',view_src:'→ Ver código',
-    cv_h:'Mi Currículum',cv_desc:'Cubre educación, proyectos y habilidades.',cv_note:'Abre la versión actual como PDF.',
+    cv_h:'Mi Currículum',cv_desc:'Cubre educación, proyectos y habilidades.',cv_note:'Coloca resume.pdf junto a index.html.',
     ct_h:'Conectemos',ct_desc:'Abierto a prácticas y colaboraciones.',ct_email_l:'correo:',ct_gh_l:'github:',
-    btn_email:'Enviar correo',btn_copy:'Copiar correo',btn_copied:'¡Copiado!',btn_github:'Código abierto',btn_stack:'Ver stack',
+    btn_email:'Enviar correo',btn_copy:'Copiar correo',btn_copied:'¡Copiado!',btn_github:'GitHub',
     footer_tag:'diseñado y construido a mano'
   },
   fr:{
@@ -91,7 +91,7 @@ var TR = {
     badge_otw:'Disponible',hero_eyebrow:'Licence Info · IA et ML',
     hero_h:'Construire des systèmes intelligents,<br><span class="accent">un commit</span> à la fois.',
     typing:["j'apprends l'IA et le ML",'outils open source','résolution DSA','débogage de tout','création de ce portfolio'],
-    btn_projects:'Voir les projets',btn_cv:'Ouvrir le CV',btn_ping:'Échangeons',btn_linkedin:'Se connecter sur LinkedIn',
+    btn_projects:'Voir projets',btn_cv:'Télécharger CV',btn_ping:'Contact',btn_linkedin:'Profil LinkedIn',
     meta_proj:'projets',meta_tech:'technologies',meta_open:'disponible',
     sec_about:'À propos',sec_about_tag:'01 — profil',sec_skills:'Compétences',sec_skills_tag:'02 — outils',
     sec_projects:'Projets',sec_projects_tag:'03 — publiés',sec_github:'GitHub Stats',sec_github_tag:'04 — métriques',
@@ -104,9 +104,9 @@ var TR = {
     proj2_t:'Entraînement DSA',proj2_d:'Collection de problèmes de structures et algorithmes.',
     proj3_t:'Site portfolio',proj3_d:'HTML, CSS et JS, sans framework.',
     badge_shipped:'publié',badge_practice:'entraînement',view_src:'→ Voir le code',
-    cv_h:'Mon CV',cv_desc:'Éducation, projets et compétences.',cv_note:'Ouvrez la version actuelle en PDF.',
+    cv_h:'Mon CV',cv_desc:'Éducation, projets et compétences.',cv_note:'Placez resume.pdf avec index.html.',
     ct_h:'Me contacter',ct_desc:'Ouvert aux stages et collaborations.',ct_email_l:'e-mail :',ct_gh_l:'github :',
-    btn_email:"M'écrire",btn_copy:"Copier l'e-mail",btn_copied:'Copié !',btn_github:'Open source',btn_stack:'Voir le stack',
+    btn_email:"M'écrire",btn_copy:"Copier l'e-mail",btn_copied:'Copié !',btn_github:'GitHub',
     footer_tag:'conçu à la main — sans modèle'
   },
   de:{
@@ -115,7 +115,7 @@ var TR = {
     badge_otw:'Offen für Aufgaben',hero_eyebrow:'B.Tech Informatik · KI & ML',
     hero_h:'Intelligente Systeme bauen,<br>ein <span class="accent">Commit</span> nach dem anderen.',
     typing:['lerne KI & ML','Open-Source Tools','DSA lösen','debugge alles','baue dieses Portfolio'],
-    btn_projects:'Projekte ansehen',btn_cv:'CV ansehen',btn_ping:'Kontakt aufnehmen',btn_linkedin:'Auf LinkedIn verbinden',
+    btn_projects:'Projekte',btn_cv:'CV öffnen',btn_ping:'Kontakt',btn_linkedin:'LinkedIn-Profil',
     meta_proj:'Projekte',meta_tech:'Technologien',meta_open:'verfügbar',
     sec_about:'Über mich',sec_about_tag:'01 — profil',sec_skills:'Fähigkeiten',sec_skills_tag:'02 — werkzeuge',
     sec_projects:'Projekte',sec_projects_tag:'03 — veröffentlicht',sec_github:'GitHub Stats',sec_github_tag:'04 — kennzahlen',
@@ -128,9 +128,9 @@ var TR = {
     proj2_t:'DSA-Übung',proj2_d:'Sammlung gelöster Algorithmen-Aufgaben.',
     proj3_t:'Portfolio-Website',proj3_d:'HTML, CSS und JS, ohne Framework.',
     badge_shipped:'veröffentlicht',badge_practice:'übung',view_src:'→ Quellcode',
-    cv_h:'Mein Lebenslauf',cv_desc:'Ausbildung, Projekte und Fähigkeiten.',cv_note:'Die aktuelle Version als PDF öffnen.',
+    cv_h:'Mein Lebenslauf',cv_desc:'Ausbildung, Projekte und Fähigkeiten.',cv_note:'resume.pdf im selben Ordner wie index.html.',
     ct_h:'Kontakt aufnehmen',ct_desc:'Offen für Praktika und Zusammenarbeit.',ct_email_l:'e-mail:',ct_gh_l:'github:',
-    btn_email:'E-Mail schreiben',btn_copy:'E-Mail kopieren',btn_copied:'Kopiert!',btn_github:'Open Source',btn_stack:'Stack ansehen',
+    btn_email:'E-Mail schreiben',btn_copy:'E-Mail kopieren',btn_copied:'Kopiert!',btn_github:'GitHub',
     footer_tag:'von Hand gebaut — keine Vorlage'
   },
   pt:{
@@ -139,7 +139,7 @@ var TR = {
     badge_otw:'Disponível',hero_eyebrow:'CC · IA e ML',
     hero_h:'Construindo sistemas inteligentes,<br><span class="accent">um commit</span> de cada vez.',
     typing:['aprendendo IA e ML','criando ferramentas open source','resolvendo DSA','depurando tudo','criando este portfólio'],
-    btn_projects:'Projetos ansehen',btn_cv:'CV öffnen',btn_ping:'Vamos conversar',btn_linkedin:'No LinkedIn conectar',
+    btn_projects:'Projetos',btn_cv:'Baixar CV',btn_ping:'Contato',btn_linkedin:'Perfil LinkedIn',
     meta_proj:'projetos',meta_tech:'tecnologias',meta_open:'disponível',
     sec_about:'Sobre',sec_about_tag:'01 — perfil',sec_skills:'Habilidades',sec_skills_tag:'02 — ferramentas',
     sec_projects:'Projetos',sec_projects_tag:'03 — publicados',sec_github:'GitHub Stats',sec_github_tag:'04 — métricas',
@@ -152,9 +152,9 @@ var TR = {
     proj2_t:'Prática DSA',proj2_d:'Coleção de problemas de estruturas de dados.',
     proj3_t:'Site portfólio',proj3_d:'HTML, CSS e JS, sem framework.',
     badge_shipped:'publicado',badge_practice:'prática',view_src:'→ Ver código',
-    cv_h:'Meu Currículo',cv_desc:'Educação, projetos e habilidades.',cv_note:'Abra a versão atual em PDF.',
+    cv_h:'Meu Currículo',cv_desc:'Educação, projetos e habilidades.',cv_note:'Coloque resume.pdf na mesma pasta de index.html.',
     ct_h:'Vamos conversar',ct_desc:'Aberto a estágios e colaborações.',ct_email_l:'e-mail:',ct_gh_l:'github:',
-    btn_email:'Enviar e-mail',btn_copy:'Copiar e-mail',btn_copied:'Copiado!',btn_github:'Open source',btn_stack:'Ver stack',
+    btn_email:'Enviar e-mail',btn_copy:'Copiar e-mail',btn_copied:'Copiado!',btn_github:'GitHub',
     footer_tag:'feito à mão — sem template'
   },
   ja:{
@@ -163,7 +163,7 @@ var TR = {
     badge_otw:'就業可能',hero_eyebrow:'CS学士課程 · AI & ML',
     hero_h:'ひとつひとつのコミットで、<br><span class="accent">知的なシステム</span>を築く。',
     typing:['AIとMLを学習中','オープンソース開発','DSA問題解決中','デバッグ中','このポートフォリオ作成中'],
-    btn_projects:'プロジェクトを見る',btn_cv:'Resumeを見る',btn_ping:'話しましょう',btn_linkedin:'LinkedInでつながる',
+    btn_projects:'プロジェクト',btn_cv:'Resumeを開く',btn_ping:'連絡する',btn_linkedin:'LinkedInプロフィール',
     meta_proj:'プロジェクト',meta_tech:'技術',meta_open:'就業可能',
     sec_about:'概要',sec_about_tag:'01 — プロフィール',sec_skills:'スキル',sec_skills_tag:'02 — ツールキット',
     sec_projects:'プロジェクト',sec_projects_tag:'03 — 公開済み',sec_github:'GitHub統計',sec_github_tag:'04 — メトリクス',
@@ -176,9 +176,9 @@ var TR = {
     proj2_t:'DSA練習',proj2_d:'アルゴリズム問題コレクション。',
     proj3_t:'ポートフォリオ',proj3_d:'HTML・CSS・JSのみで構築。',
     badge_shipped:'公開済み',badge_practice:'練習',view_src:'→ ソース',
-    cv_h:'履歴書',cv_desc:'教育・プロジェクト・スキルを掲載。',cv_note:'現在の履歴書をPDFで開きます。',
+    cv_h:'履歴書',cv_desc:'教育・プロジェクト・スキルを掲載。',cv_note:'resume.pdfをindex.htmlと同じフォルダに。',
     ct_h:'連絡する',ct_desc:'インターンや協力を募集中。',ct_email_l:'メール：',ct_gh_l:'GitHub：',
-    btn_email:'メール送信',btn_copy:'メールコピー',btn_copied:'コピー済！',btn_github:'オープンソース',btn_stack:'技術スタック',
+    btn_email:'メール送信',btn_copy:'メールコピー',btn_copied:'コピー済！',btn_github:'GitHub',
     footer_tag:'手作業で設計・制作'
   },
   zh:{
@@ -187,7 +187,7 @@ var TR = {
     badge_otw:'招募中',hero_eyebrow:'CS学士 · AI与ML',
     hero_h:'用每一次提交，<br>构建<span class="accent">智能系统</span>。',
     typing:['学习AI与ML','构建开源工具','解决DSA问题','调试一切','构建此作品集'],
-    btn_projects:'查看项目',btn_cv:'打开简历',btn_ping:'聊聊吧',btn_linkedin:'在 LinkedIn 连接',
+    btn_projects:'项目',btn_cv:'下载简历',btn_ping:'联系',btn_linkedin:'LinkedIn主页',
     meta_proj:'项目',meta_tech:'技术',meta_open:'招募中',
     sec_about:'关于我',sec_about_tag:'01 — 简介',sec_skills:'技能',sec_skills_tag:'02 — 工具',
     sec_projects:'项目',sec_projects_tag:'03 — 已完成',sec_github:'GitHub数据',sec_github_tag:'04 — 指标',
@@ -200,7 +200,7 @@ var TR = {
     proj2_t:'DSA练习',proj2_d:'持续增长的算法题解集合。',
     proj3_t:'作品集网站',proj3_d:'HTML、CSS和JS，无框架。',
     badge_shipped:'已完成',badge_practice:'练习',view_src:'→ 查看源码',
-    cv_h:'我的简历',cv_desc:'教育、项目和技能。',cv_note:'打开当前版本的 PDF 简历。',
+    cv_h:'我的简历',cv_desc:'教育、项目和技能。',cv_note:'将resume.pdf放在index.html同文件夹。',
     ct_h:'联系我',ct_desc:'欢迎实习、合作和有趣项目。',ct_email_l:'邮箱：',ct_gh_l:'GitHub：',
     btn_email:'发邮件',btn_copy:'复制邮箱',btn_copied:'已复制！',btn_github:'GitHub',
     footer_tag:'手工设计——无模板'
@@ -351,56 +351,24 @@ var Typer = (function() {
   els.forEach(function(el) { obs.observe(el); });
 })();
 
-/* Fluid cursor + ambient spotlight */
+/* Custom cursor */
 (function() {
-  var c = document.getElementById('cur'), f = document.getElementById('cfl'), a = document.getElementById('cursorAura');
-  if (!c || !f || window.innerWidth < 768 || noMotion) return;
-  var mx = innerWidth / 2, my = innerHeight / 2, fx = mx, fy = my, ax = mx, ay = my;
-  var raf = false;
+  var c = document.getElementById('cur'), f = document.getElementById('cfl');
+  if (!c || !f || window.innerWidth < 768) return;
+  var mx = 0, my = 0, fx = 0, fy = 0;
   document.addEventListener('mousemove', function(e) {
     mx = e.clientX; my = e.clientY;
     c.style.left = mx + 'px'; c.style.top = my + 'px';
-    document.documentElement.style.setProperty('--mouse-x', mx + 'px');
-    document.documentElement.style.setProperty('--mouse-y', my + 'px');
-    raf = true;
-  }, {passive:true});
+  });
   (function af() {
-    fx += (mx - fx) * .12; fy += (my - fy) * .12;
-    ax += (mx - ax) * .055; ay += (my - ay) * .055;
+    fx += (mx - fx) * 0.13; fy += (my - fy) * 0.13;
     f.style.left = fx + 'px'; f.style.top = fy + 'px';
-    if (a) { a.style.left = ax + 'px'; a.style.top = ay + 'px'; }
     requestAnimationFrame(af);
   })();
-  document.querySelectorAll('a,button,.sk-card,.proj-card,.lc-card-frame,.cfg-panel,.gh-panel,.terminal,.cv-term,select').forEach(function(el) {
-    el.addEventListener('mouseenter', function() { c.classList.add('exp'); f.classList.add('exp'); if(a) a.classList.add('exp'); });
-    el.addEventListener('mouseleave', function() { c.classList.remove('exp'); f.classList.remove('exp'); if(a) a.classList.remove('exp'); });
+  document.querySelectorAll('a,button,.sk-card,.proj-card,.lc-chip,select').forEach(function(el) {
+    el.addEventListener('mouseenter', function() { c.classList.add('exp'); f.classList.add('exp'); });
+    el.addEventListener('mouseleave', function() { c.classList.remove('exp'); f.classList.remove('exp'); });
   });
-  document.querySelectorAll('.proj-card,.cfg-panel,.gh-panel,.terminal,.cv-term').forEach(function(el){
-    el.addEventListener('mousemove',function(e){
-      var r=el.getBoundingClientRect();
-      el.style.setProperty('--mx',((e.clientX-r.left)/r.width*100)+'%');
-      el.style.setProperty('--my',((e.clientY-r.top)/r.height*100)+'%');
-    });
-  });
-})();
-
-/* Small, optional-feeling interaction sound — only fires on deliberate clicks. */
-(function(){
-  var ctx = null;
-  function ping(){
-    try{
-      ctx = ctx || new (window.AudioContext || window.webkitAudioContext)();
-      if(ctx.state === 'suspended') ctx.resume();
-      var now=ctx.currentTime, o=ctx.createOscillator(), g=ctx.createGain();
-      o.type='sine'; o.frequency.setValueAtTime(620,now); o.frequency.exponentialRampToValueAtTime(880,now+.09);
-      g.gain.setValueAtTime(.0001,now); g.gain.exponentialRampToValueAtTime(.022,now+.012); g.gain.exponentialRampToValueAtTime(.0001,now+.13);
-      o.connect(g); g.connect(ctx.destination); o.start(now); o.stop(now+.14);
-    }catch(e){}
-  }
-  document.addEventListener('click',function(e){
-    var t=e.target.closest && e.target.closest('.btn,.soc-btn,.icon-btn,.card-lnk,.nav-links a');
-    if(t) ping();
-  },{passive:true});
 })();
 
 /* Particles */
@@ -445,10 +413,10 @@ var Typer = (function() {
 (function() {
   var ld = document.getElementById('loader'), ldT = document.getElementById('ldText');
   if (!ld) return;
-  var msgs = ['compiling assets...', 'loading modules...', 'syncing profile...', 'almost ready...'];
+  var msgs = ['compiling assets...', 'loading modules...', 'fetching LeetCode stats...', 'almost ready...'];
   var i = 0;
   var iv = setInterval(function() { if (i < msgs.length && ldT) ldT.textContent = msgs[i++]; else clearInterval(iv); }, 440);
-  setTimeout(function() { ld.classList.add('out'); fetchLCStats(); initPost(); }, 1850);
+  setTimeout(function() { ld.classList.add('out'); initPost(); }, 1850);
 })();
 
 function initPost() { initCounters(); initTilt(); initTrail(); }
@@ -494,15 +462,8 @@ function animC(el) {
   })(s);
 }
 
-/* LeetCode profile snapshot — no fragile client-side API call.
-   The profile card itself is served by LeetCard and carries the current
-   public snapshot, so the page never renders fake 0 / — values or CORS errors. */
-function fetchLCStats() {
-  var img = document.getElementById('lcHeatmap');
-  if (!img) return;
-  var dark = document.documentElement.getAttribute('data-theme') === 'dark';
-  img.src = 'https://leetcard.jacoblin.cool/' + CFG.lc + '?theme=' + (dark ? 'dark' : 'light') + '&font=JetBrains%20Mono&ext=heatmap&border=0&radius=8';
-}
+/* LeetCode stats intentionally use the visual profile snapshot in index.html.
+   No client-side API call: avoids CORS/rate-limit error states on GitHub Pages. */
 
 /* 3D Tilt */
 function initTilt() {
@@ -550,3 +511,33 @@ if (yr) yr.textContent = new Date().getFullYear();
 /* Init */
 Typer.start();
 applyLang(DLANG);
+
+/* Hero interaction: soft mouse-reactive spotlight + restrained UI sound */
+(function(){
+  if (window.innerWidth < 768 || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var hero=document.querySelector('.hero-v3');
+  if(!hero) return;
+  var aura=document.getElementById('cursorAura');
+  hero.addEventListener('mousemove',function(e){
+    var r=hero.getBoundingClientRect();
+    var x=((e.clientX-r.left)/r.width)*100, y=((e.clientY-r.top)/r.height)*100;
+    hero.style.setProperty('--mx',x+'%'); hero.style.setProperty('--my',y+'%');
+    if(aura){aura.style.left=e.clientX+'px';aura.style.top=e.clientY+'px';aura.classList.add('on');}
+  });
+  hero.addEventListener('mouseleave',function(){ if(aura) aura.classList.remove('on'); });
+})();
+
+(function(){
+  var ac=null;
+  function tone(){
+    try{
+      ac=ac||new (window.AudioContext||window.webkitAudioContext)();
+      if(ac.state==='suspended') ac.resume();
+      var o=ac.createOscillator(), g=ac.createGain();
+      o.type='sine'; o.frequency.setValueAtTime(520,ac.currentTime); o.frequency.exponentialRampToValueAtTime(720,ac.currentTime+.07);
+      g.gain.setValueAtTime(.0001,ac.currentTime); g.gain.exponentialRampToValueAtTime(.018,ac.currentTime+.012); g.gain.exponentialRampToValueAtTime(.0001,ac.currentTime+.11);
+      o.connect(g); g.connect(ac.destination); o.start(); o.stop(ac.currentTime+.12);
+    }catch(e){}
+  }
+  document.querySelectorAll('.btn,.soc-btn,.icon-btn').forEach(function(el){el.addEventListener('click',tone,{passive:true});});
+})();
