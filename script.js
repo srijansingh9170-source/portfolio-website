@@ -269,8 +269,6 @@ var Typer = (function() {
     var dark = document.documentElement.getAttribute('data-theme') === 'dark';
     btn.setAttribute('aria-pressed', dark ? 'true' : 'false');
     if (icon) icon.textContent = dark ? '☀️' : '🌙';
-    var img = document.getElementById('lcHeatmap');
-    if (img) img.src = 'https://leetcard.jacoblin.cool/' + CFG.lc + '?theme=' + (dark ? 'dark' : 'light') + '&font=JetBrains%20Mono&ext=heatmap&border=0&radius=8';
   }
   sync();
   btn.addEventListener('click', function() {
@@ -351,24 +349,38 @@ var Typer = (function() {
   els.forEach(function(el) { obs.observe(el); });
 })();
 
-/* Custom cursor */
+/* Fluid cursor */
 (function() {
-  var c = document.getElementById('cur'), f = document.getElementById('cfl');
-  if (!c || !f || window.innerWidth < 768) return;
-  var mx = 0, my = 0, fx = 0, fy = 0;
+  var core = document.getElementById('cursor-core');
+  var glow = document.getElementById('cursor-glow');
+  var aura = document.getElementById('cursor-aura');
+  if (!core || !glow || !aura || window.innerWidth < 768 || noMotion) return;
+
+  var x = innerWidth / 2, y = innerHeight / 2;
+  var gx = x, gy = y, ax = x, ay = y;
+  var hovering = false;
+
   document.addEventListener('mousemove', function(e) {
-    mx = e.clientX; my = e.clientY;
-    c.style.left = mx + 'px'; c.style.top = my + 'px';
+    x = e.clientX; y = e.clientY;
+    document.documentElement.style.setProperty('--mx', x + 'px');
+    document.documentElement.style.setProperty('--my', y + 'px');
+  }, {passive:true});
+
+  document.querySelectorAll('a,button,.sk-card,.proj-card,.lc-profile-card,select').forEach(function(el) {
+    el.addEventListener('mouseenter', function(){ hovering = true; document.body.classList.add('cursor-hover'); });
+    el.addEventListener('mouseleave', function(){ hovering = false; document.body.classList.remove('cursor-hover'); });
   });
-  (function af() {
-    fx += (mx - fx) * 0.13; fy += (my - fy) * 0.13;
-    f.style.left = fx + 'px'; f.style.top = fy + 'px';
-    requestAnimationFrame(af);
-  })();
-  document.querySelectorAll('a,button,.sk-card,.proj-card,.lc-chip,select').forEach(function(el) {
-    el.addEventListener('mouseenter', function() { c.classList.add('exp'); f.classList.add('exp'); });
-    el.addEventListener('mouseleave', function() { c.classList.remove('exp'); f.classList.remove('exp'); });
-  });
+
+  function frame() {
+    gx += (x - gx) * .18; gy += (y - gy) * .18;
+    ax += (x - ax) * .055; ay += (y - ay) * .055;
+    core.style.transform = 'translate3d(' + x + 'px,' + y + 'px,0) translate(-50%,-50%)';
+    glow.style.transform = 'translate3d(' + gx + 'px,' + gy + 'px,0) translate(-50%,-50%)';
+    aura.style.transform = 'translate3d(' + ax + 'px,' + ay + 'px,0) translate(-50%,-50%)';
+    aura.style.opacity = hovering ? '.9' : '.55';
+    requestAnimationFrame(frame);
+  }
+  frame();
 })();
 
 /* Particles */
@@ -413,13 +425,13 @@ var Typer = (function() {
 (function() {
   var ld = document.getElementById('loader'), ldT = document.getElementById('ldText');
   if (!ld) return;
-  var msgs = ['compiling assets...', 'loading modules...', 'fetching LeetCode stats...', 'almost ready...'];
+  var msgs = ['booting interface...', 'loading modules...', 'syncing profile...', 'almost ready...'];
   var i = 0;
   var iv = setInterval(function() { if (i < msgs.length && ldT) ldT.textContent = msgs[i++]; else clearInterval(iv); }, 440);
-  setTimeout(function() { ld.classList.add('out'); fetchLCStats(); initPost(); }, 1850);
+  setTimeout(function() { ld.classList.add('out'); initPost(); }, 1850);
 })();
 
-function initPost() { initCounters(); initTilt(); initTrail(); }
+function initPost() { initCounters(); initTilt(); }
 
 /* Navbar */
 (function() {
@@ -462,54 +474,7 @@ function animC(el) {
   })(s);
 }
 
-/* LeetCode stats */
-function fetchLCStats() {
-  var u = CFG.lc, term = document.getElementById('lcTerm');
-  function setT(lines) {
-    if (!term) return; term.innerHTML = '';
-    lines.forEach(function(l) { var d = document.createElement('div'); d.className = 'tline'; d.innerHTML = l; term.appendChild(d); });
-  }
-  function setR(id, solved, total) {
-    var el = document.getElementById(id); if (!el) return;
-    var pct = total > 0 ? Math.min(solved / total, 1) : 0;
-    setTimeout(function() { el.style.strokeDashoffset = 201 - (pct * 201); }, 400);
-  }
-  function setV(id, v) { var el = document.getElementById(id); if (el) el.textContent = v; }
-  setT([
-    '<span class="tprompt">›</span><span>leetcode stats --user <span class="cgrn">' + u + '</span></span>',
-    '<span class="tdim">fetching from API...</span>'
-  ]);
-  fetch('https://leetcode-stats-api.herokuapp.com/' + u)
-    .then(function(r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
-    .then(function(d) {
-      if (d.status !== 'success') throw new Error('non-success');
-      var easy=d.easySolved||0, eT=d.totalEasy||1, med=d.mediumSolved||0, mT=d.totalMedium||1, hard=d.hardSolved||0, hT=d.totalHard||1;
-      var total=d.totalSolved||0, rank=d.ranking?'#'+Number(d.ranking).toLocaleString():'N/A', rate=d.acceptanceRate?d.acceptanceRate.toFixed(1)+'%':'N/A', rep=d.contributionPoints||d.reputation||0;
-      setV('lcEasy',easy); setV('lcMed',med); setV('lcHard',hard);
-      setV('lcTotal',total); setV('lcRank',rank); setV('lcRate',rate); setV('lcRep',rep);
-      setR('ringEasy',easy,eT); setR('ringMed',med,mT); setR('ringHard',hard,hT);
-      setT([
-        '<span class="tprompt">›</span><span>leetcode stats --user <span class="cgrn">'+u+'</span></span>',
-        '<span class="tdim">status:</span>       <span class="cgrn">✓ fetched successfully</span>',
-        '<span class="tdim">total_solved:</span>  <span class="camb">'+total+'</span>',
-        '<span class="tdim">easy:</span>          <span style="color:var(--easy)">'+easy+' / '+eT+'</span>',
-        '<span class="tdim">medium:</span>        <span style="color:var(--med)">'+med+' / '+mT+'</span>',
-        '<span class="tdim">hard:</span>          <span style="color:var(--hard)">'+hard+' / '+hT+'</span>',
-        '<span class="tdim">ranking:</span>       <span class="ptext">'+rank+'</span>',
-        '<span class="tdim">acceptance:</span>    <span class="ptext">'+rate+'</span>',
-        '<span class="tprompt">›</span><span class="tdim">_</span>'
-      ]);
-    })
-    .catch(function(err) {
-      console.warn('LC API:', err.message);
-      setT([
-        '<span class="tprompt">›</span><span>leetcode --user <span class="cgrn">'+u+'</span></span>',
-        '<span style="color:var(--rose)">✗ API unavailable (CORS / rate limit)</span>',
-        '<span class="tdim"># Activity heatmap is shown below</span>',
-        '<span class="tprompt">›</span><span>open <span class="cgrn">leetcode.com/'+u+'</span></span>'
-      ]);
-    });
-}
+/* LeetCode data is intentionally link-only: no fragile third-party API calls. */
 
 /* 3D Tilt */
 function initTilt() {
@@ -521,17 +486,6 @@ function initTilt() {
     });
     c.addEventListener('mouseleave', function() { c.style.transition='transform .5s ease'; c.style.transform=''; });
     c.addEventListener('mouseenter', function() { c.style.transition='none'; });
-  });
-}
-
-/* Mouse trail */
-function initTrail() {
-  if (window.innerWidth < 768 || noMotion) return;
-  document.addEventListener('mousemove', function(e) {
-    var d = document.createElement('div');
-    d.style.cssText = 'position:fixed;left:'+e.clientX+'px;top:'+e.clientY+'px;width:4px;height:4px;border-radius:50%;background:rgba(108,134,255,.28);pointer-events:none;z-index:9997;transform:translate(-50%,-50%);animation:mtrail .6s ease forwards';
-    document.body.appendChild(d);
-    setTimeout(function() { if (d.parentNode) d.parentNode.removeChild(d); }, 600);
   });
 }
 
